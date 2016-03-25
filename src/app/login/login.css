@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  color: #333333;
+  background: #262626; }
+
+a {
+  color: black;
+  text-decoration: none;
+  -webkit-transition: All 0.5s ease;
+  -moz-transition: All 0.5s ease;
+  -ms-transition: All 0.5s ease;
+  -o-transition: All 0.5s ease;
+  transition: All 0.5s ease; }
+  a:hover {
+    color: #ed6d49;
+    text-decoration: none; }
+
+@media (min-width: 980px) {
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important; } }
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 15px; } }
+@media (min-width: 992px) {
+  .container {
+    width: 100%;
+    padding: 0 15px; } }
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+    padding: 0 15px; } }
+/*  Login  */
+.sign-in-container {
+  margin: 30px auto; }
+  .sign-in-container .login-wrapper {
+    background: #fcfcfc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 18px 6px -8px #121212, 0 0 0 #333333;
+    -moz-box-shadow: 0 18px 6px -8px #121212, 0 0 0 #333333;
+    box-shadow: 0 18px 6px -8px #121212, 0 0 0 #333333;
+    border: 2px solid #d9d9d9;
+    position: relative; }
+    .sign-in-container .login-wrapper .header {
+      padding: 30px 20px 10px 20px;
+      margin: 0; }
+      .sign-in-container .login-wrapper .header h3 {
+        line-height: 40px;
+        margin: 0;
+        padding: 0;
+        color: #f63131; }
+      .sign-in-container .login-wrapper .header p {
+        font-size: 12px;
+        text-align: left;
+        line-height: 18px;
+        color: gray;
+        padding: 10px 0;
+        margin: 0; }
+      .sign-in-container .login-wrapper .header .logo img {
+        max-width: 80px;
+        float: right; }
+    .sign-in-container .login-wrapper .content {
+      padding: 10px 20px; }
+      .sign-in-container .login-wrapper .content .input {
+        height: 30px;
+        font-weight: normal;
+        color: #cccccc;
+        box-shadow: none;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px; }
+      .sign-in-container .login-wrapper .content .input:hover, .sign-in-container .login-wrapper .content select:hover {
+        background: #fafafa; }
+    .sign-in-container .login-wrapper .actions {
+      padding: 10px 20px;
+      background: white;
+      border-radius: 0 0 4px 4px; }
+      .sign-in-container .login-wrapper .actions .btn {
+        float: right; }
+      .sign-in-container .login-wrapper .actions .link {
+        float: right;
+        padding: 8px;
+        margin-right: 10px;
+        color: #737373; }
+
+.input-group .input-group-addon i {
+  display: block;
+  cursor: pointer;
+  width: 18px;
+  height: 20px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
