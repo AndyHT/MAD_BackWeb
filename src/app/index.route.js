@@ -130,6 +130,17 @@
               templateUrl: 'app/user-check-mobile/user-check-mobile.html'
             }
           }
+      })
+      .state('app.advert-detail', {
+        url: 'advert/detail',
+        views: {
+          'sub-navbar@': {
+            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html'
+          },
+          'content@': {
+            templateUrl: 'app/advert-detail/advert-detail.html'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
