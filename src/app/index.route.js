@@ -50,6 +50,50 @@
                 templateUrl: 'app/blank/blank.html'
             }
         }
+      })
+      .state('app.user', {
+        url: 'user/list-mobile',
+        views: {
+            'sub-navbar@': {
+                templateUrl: 'app/components/sub-navbar/user-list-sub-navbar.html'
+            },
+            'content@': {
+                templateUrl: 'app/user-list-mobile/user-list-mobile.html'
+            }
+        }
+      })
+      .state('app.user.list-advert', {
+        url: 'user/list-advert',
+        views: {
+            'sub-navbar@': {
+                templateUrl: 'app/components/sub-navbar/user-list-sub-navbar.html'
+            },
+            'content@': {
+                templateUrl: 'app/user-list-advert/user-list-advert.html'
+            }
+        }
+      })
+      .state('app.user.check-advert', {
+        url: 'user/check-advert',
+        views: {
+            'sub-navbar@': {
+                templateUrl: 'app/components/sub-navbar/user-check-sub-navbar.html'
+            },
+            'content@': {
+                templateUrl: 'app/user-check-advert/user-check-advert.html'
+            }
+        }
+      })
+      .state('app.user.check-mobile', {
+        url: 'user/check-mobile',
+        views: {
+            'sub-navbar@': {
+                templateUrl: 'app/components/sub-navbar/user-check-sub-navbar.html'
+            },
+            'content@': {
+                templateUrl: 'app/user-check-mobile/user-check-mobile.html'
+            }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
