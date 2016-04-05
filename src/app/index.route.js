@@ -50,6 +50,42 @@
                 templateUrl: 'app/blank/blank.html'
             }
         }
+      })
+      .state('app.advert-push', {
+        url: 'advert/push',
+        views: {
+            'sub-navbar@': {
+              templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html'
+            },
+            'content@': {
+              templateUrl: 'app/advert-push/advert-push.html',
+              controller: 'AdvertPushCtrl'
+            }
+        }
+      })
+      .state('app.advert-audit', {
+        url: 'advert/audit',
+        views: {
+          'sub-navbar@': {
+            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html'
+          },
+          'content@': {
+            templateUrl: 'app/advert-audit/advert-audit.html',
+            controller: 'AdvertAuditCtrl'
+          }
+        }
+      })
+      .state('app.advert-search', {
+        url: 'advert/search',
+        views: {
+          'sub-navbar@': {
+            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html'
+          },
+          'content@': {
+            templateUrl: 'app/advert-search/advert-search.html',
+            controller: 'AdvertSearchCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
