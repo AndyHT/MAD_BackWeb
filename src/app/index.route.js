@@ -18,12 +18,12 @@
                 templateUrl: 'app/components/navbar/navbar.html'
             },
             'sub-navbar': {
-                templateUrl: 'app/components/sub-navbar/user-list-sub-navbar.html'
+                templateUrl: 'app/components/sub-navbar/dashboard-sub-navbar.html'
             },
             'content': {
-                templateUrl: 'app/user-list/user-list.html',
+                templateUrl: 'app/dashboard/dashboard.html',
                 controller: 'MainController',
-                controllerAs: 'userList'
+                controllerAs: 'dashboard'
             },
             'footer': {
                 templateUrl: 'app/components/footer/footer.html'
