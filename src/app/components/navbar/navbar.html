@@ -1,12 +1,17 @@
         <div id="cssmenu">
           <ul>
             <li class="active">
-              <a href="#"><i class="fa fa-dashboard"></i>用户列表</a>
+              <a href="#"><i class="fa fa-dashboard"></i>Dashboard</a>
             </li>
             <li class="">
-              <a href="#"><i class="fa fa-bar-chart-o"></i>用户管理</a>
+              <a><i class="fa fa-bar-chart-o"></i>用户管理</a>
               <ul>
-                 <li><a href="#">未验证用户列表</a></li>
+                 <li><a ui-sref="app.user">用户列表</a>
+                    <ul>
+                        <li><a ui-sref="app.user">车主用户</a></li>
+                        <li><a ui-sref="app.user.list-advert">广告商用户</a></li>
+                    </ul>
+                 </li>
                  <li><a href="#">创建用户</a>
                     <ul>
                         <li><a href="#">创建广告商用户</a></li>
