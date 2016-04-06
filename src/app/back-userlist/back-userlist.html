@@ -1,0 +1,40 @@
+<div class="dashboard-wrapper-lg">
+  <div class="container">
+    <div class="row white">
+      <div>
+        <legend class="col-md-offset-2 col-md-8">管理员列表</legend>
+        <div class="col-md-offset-2 col-md-8">
+          <table class="table table-hover table-striped table-bordered">
+            <tr class="success">
+              <th>姓名</th>
+              <th>性别</th>
+              <th>邮箱</th>
+              <th>权限级别</th>
+              <th>入职时间</th>
+            </tr>
+            <tbody>
+            <tr ng-repeat="user in userList">
+              <td>{{user.name}}</td>
+              <td>{{user.gender}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.level}}</td>
+              <td>{{user.startTime}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <!--<div class="form-group">-->
+            <!--<div class="col-md-offset-3 col-md-2">-->
+              <!--<button type="submit" class="btn btn-warning">编辑</button>-->
+            <!--</div>-->
+            <!--<div class="col-md-2">-->
+              <!--<button type="reset" class="btn btn-danger">删除</button>-->
+            <!--</div>-->
+            <!--<div class="col-md-2">-->
+              <!--<button type="reset" class="btn btn-info">返回</button>-->
+            <!--</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

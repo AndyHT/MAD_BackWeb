@@ -141,6 +141,54 @@
             templateUrl: 'app/advert-detail/advert-detail.html'
           }
         }
+      })
+      .state('app.back-userlist', {
+        url: 'back-userlist',
+        views: {
+          'navbar@': {
+            templateUrl: 'app/components/navbar/back-userlist-navbar.html'
+          },
+          'sub-navbar@': {
+            templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
+            controller: 'backgroundManagementCtrl'
+          },
+          'content@': {
+            templateUrl: 'app/back-userlist/back-userlist.html',
+            controller: 'backgroundManagementCtrl'
+          }
+        }
+      })
+      .state('app.back-adduser', {
+        url: 'back-adduser',
+        views: {
+          'navbar@': {
+            templateUrl: 'app/components/navbar/back-userlist-navbar.html'
+          },
+          'sub-navbar@': {
+            templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
+            controller: 'backgroundManagementCtrl'
+          },
+          'content@': {
+            templateUrl: 'app/back-adduser/back-adduser.html',
+            controller: 'backgroundManagementCtrl'
+          }
+        }
+      })
+      .state('app.back-auth', {
+        url: 'back-auth',
+        views: {
+          'navbar@': {
+            templateUrl: 'app/components/navbar/back-userlist-navbar.html'
+          },
+          'sub-navbar@': {
+            templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
+            controller: 'backgroundManagementCtrl'
+          },
+          'content@': {
+            templateUrl: 'app/back-auth/back-auth.html',
+            controller: 'backgroundManagementCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
