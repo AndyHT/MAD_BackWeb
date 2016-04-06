@@ -44,6 +44,10 @@ Mad Back manage Web
 
     用户列表界面
 
+8. app/back-*/*
+
+    管理员界面
+    
 ## 界面说明
 ###1.登录
 ```
@@ -51,8 +55,26 @@ http://localhost:3000/#/login
 ```
 ####文件目录:app/login/*
 
-###2. 用户列表
+###2.用户列表
 ```
 http://localhost:3000/#/
 ```
 ####文件目录:app/user-list/*
+
+###3.管理员列表
+```
+http://localhost:3000/#/back-userlist
+```
+####文件目录:app/back-userlist/*
+
+###4.添加管理员
+```
+http://localhost:3000/#/back-adduser
+```
+####文件目录:app/back-adduser/*
+
+###5.权限管理
+```
+http://localhost:3000/#/back-auth
+```
+####文件目录:app/back-auth/*
