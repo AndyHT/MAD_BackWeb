@@ -131,6 +131,17 @@
             }
           }
       })
+      .state('app.user.create', {
+          url: 'user/create',
+          views: {
+            'sub-navbar@': {
+              templateUrl: 'app/components/sub-navbar/user-create-sub-navbar.html'
+            },
+            'content@': {
+              templateUrl: 'app/user-create/user-create.html'
+            }
+          }
+      })
       .state('app.advert-detail', {
         url: 'advert/detail',
         views: {
