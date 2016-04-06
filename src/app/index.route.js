@@ -157,7 +157,7 @@
         url: 'back-userlist',
         views: {
           'navbar@': {
-            templateUrl: 'app/components/navbar/back-userlist-navbar.html'
+            templateUrl: 'app/components/navbar/navbar.html'
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
@@ -173,7 +173,7 @@
         url: 'back-adduser',
         views: {
           'navbar@': {
-            templateUrl: 'app/components/navbar/back-userlist-navbar.html'
+            templateUrl: 'app/components/navbar/navbar.html'
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
@@ -189,7 +189,7 @@
         url: 'back-auth',
         views: {
           'navbar@': {
-            templateUrl: 'app/components/navbar/back-userlist-navbar.html'
+            templateUrl: 'app/components/navbar/navbar.html'
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
