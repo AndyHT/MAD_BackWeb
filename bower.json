@@ -2,7 +2,6 @@
   "name": "madBackWeb",
   "version": "0.0.0",
   "dependencies": {
-    "angular-material": "^1.0.7",
     "angular-animate": "~1.4.2",
     "angular-cookies": "~1.4.2",
     "angular-touch": "~1.4.2",
