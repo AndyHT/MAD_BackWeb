@@ -9,21 +9,7 @@
     .directive('cancel', cancel);
 
   /** @ngInject */
-  function backgroundManagementCtrl($scope, $location) {
-    $scope.isSelected = false;
-    $scope.adduser = false;
-    $scope.userauth = false;
-    console.log($location.path());
-    if ($location.path() == '/back-auth') {
-      $scope.userauth = true;
-    }
-    if ($location.path() == '/back-userlist') {
-      $scope.isSelected = true;
-    }
-    if ($location.path() == '/back-adduser') {
-      $scope.adduser = true;
-    }
-
+  function backgroundManagementCtrl($scope) {
     $scope.copy = null;
     $scope.userList = [{
       id: 1,
