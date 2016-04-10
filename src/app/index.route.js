@@ -18,7 +18,8 @@
                 templateUrl: 'app/components/navbar/navbar.html'
             },
             'sub-navbar': {
-                templateUrl: 'app/components/sub-navbar/dashboard-sub-navbar.html'
+                templateUrl: 'app/components/sub-navbar/dashboard-sub-navbar.html',
+                controller: 'subNavbarCtrl'
             },
             'content': {
                 templateUrl: 'app/dashboard/dashboard.html',
@@ -40,7 +41,8 @@
                 templateUrl: 'app/blank/blank.html'
             },
             'sub-navbar@': {
-                templateUrl: 'app/blank/blank.html'
+                templateUrl: 'app/blank/blank.html',
+                controller: 'subNavbarCtrl'
             },
             'content@': {
                 templateUrl: 'app/login/login.html',
@@ -55,7 +57,8 @@
         url: 'advert/push',
         views: {
             'sub-navbar@': {
-              templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html'
+              templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html',
+              controller: 'subNavbarCtrl'
             },
             'content@': {
               templateUrl: 'app/advert-push/advert-push.html',
@@ -67,7 +70,8 @@
         url: 'advert/audit',
         views: {
           'sub-navbar@': {
-            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html'
+            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html',
+            controller: 'subNavbarCtrl'
           },
           'content@': {
             templateUrl: 'app/advert-audit/advert-audit.html',
@@ -79,7 +83,8 @@
         url: 'advert/search',
         views: {
           'sub-navbar@': {
-            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html'
+            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html',
+            controller: 'subNavbarCtrl'
           },
           'content@': {
             templateUrl: 'app/advert-search/advert-search.html',
@@ -91,7 +96,8 @@
         url: 'user/list-mobile',
         views: {
             'sub-navbar@': {
-                templateUrl: 'app/components/sub-navbar/user-list-sub-navbar.html'
+                templateUrl: 'app/components/sub-navbar/user-list-sub-navbar.html',
+                controller: 'subNavbarCtrl'
             },
             'content@': {
                 templateUrl: 'app/user-list-mobile/user-list-mobile.html'
@@ -102,7 +108,8 @@
         url: 'user/list-advert',
         views: {
             'sub-navbar@': {
-                templateUrl: 'app/components/sub-navbar/user-list-sub-navbar.html'
+                templateUrl: 'app/components/sub-navbar/user-list-sub-navbar.html',
+                controller: 'subNavbarCtrl'
             },
             'content@': {
                 templateUrl: 'app/user-list-advert/user-list-advert.html'
@@ -113,7 +120,8 @@
         url: 'user/check-advert',
         views: {
             'sub-navbar@': {
-                templateUrl: 'app/components/sub-navbar/user-check-sub-navbar.html'
+                templateUrl: 'app/components/sub-navbar/user-check-sub-navbar.html',
+                controller: 'subNavbarCtrl'
             },
             'content@': {
                 templateUrl: 'app/user-check-advert/user-check-advert.html'
@@ -124,7 +132,8 @@
           url: 'user/check-mobile',
           views: {
             'sub-navbar@': {
-              templateUrl: 'app/components/sub-navbar/user-check-sub-navbar.html'
+              templateUrl: 'app/components/sub-navbar/user-check-sub-navbar.html',
+              controller: 'subNavbarCtrl'
             },
             'content@': {
               templateUrl: 'app/user-check-mobile/user-check-mobile.html'
@@ -135,7 +144,8 @@
           url: 'user/create',
           views: {
             'sub-navbar@': {
-              templateUrl: 'app/components/sub-navbar/user-create-sub-navbar.html'
+              templateUrl: 'app/components/sub-navbar/user-create-sub-navbar.html',
+              controller: 'subNavbarCtrl'
             },
             'content@': {
               templateUrl: 'app/user-create/user-create.html'
@@ -146,7 +156,8 @@
         url: 'advert/detail',
         views: {
           'sub-navbar@': {
-            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html'
+            templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html',
+            controller: 'subNavbarCtrl'
           },
           'content@': {
             templateUrl: 'app/advert-detail/advert-detail.html'
@@ -161,7 +172,7 @@
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
-            controller: 'backgroundManagementCtrl'
+            controller: 'subNavbarCtrl'
           },
           'content@': {
             templateUrl: 'app/back-userlist/back-userlist.html',
@@ -177,7 +188,7 @@
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
-            controller: 'backgroundManagementCtrl'
+            controller: 'subNavbarCtrl'
           },
           'content@': {
             templateUrl: 'app/back-adduser/back-adduser.html',
@@ -193,7 +204,7 @@
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
-            controller: 'backgroundManagementCtrl'
+            controller: 'subNavbarCtrl'
           },
           'content@': {
             templateUrl: 'app/back-auth/back-auth.html',
