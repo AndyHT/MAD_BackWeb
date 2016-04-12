@@ -144,7 +144,6 @@
 
       "categoryField": "week",
       "categoryAxis": {
-        // "parseDates": true,
         "dashLength": 1,
         "minorGridEnabled": true
       },
@@ -174,6 +173,66 @@
         "delivery": 984
       }]
     });
+
+    //第三排download图
+    var chart = AmCharts.makeChart( "gg1", {
+      "type": "serial",
+      "theme": "default",
+      "dataProvider": [ {
+        "date": "3-6",
+        "value": 2025
+      }, {
+        "date": "3-13",
+        "value": 1882
+      }, {
+        "date": "3-20",
+        "value": 1809
+      }, {
+        "date": "3-27",
+        "value": 1322
+      }, {
+        "date": "4-3",
+        "value": 1122
+      }, {
+        "date": "4-10",
+        "value": 1114
+      }, {
+        "date": "4-13",
+        "value": 584
+      } ],
+      "valueAxes": [ {
+        "gridColor": "#FFFFFF",
+        "gridAlpha": 0.2,
+        "dashLength": 0
+      } ],
+      "gridAboveGraphs": true,
+      "startDuration": 1,
+      "graphs": [ {
+        "balloonText": "[[category]]: <b>[[value]]</b>",
+        "fillAlphas": 0.8,
+        "lineAlpha": 0.2,
+        "type": "column",
+        "valueField": "value"
+      } ],
+      "chartCursor": {
+        "categoryBalloonEnabled": false,
+        "cursorAlpha": 0,
+        "zoomable": false
+      },
+      "categoryField": "date",
+      "categoryAxis": {
+        "gridPosition": "start",
+        "gridAlpha": 0,
+        "tickPosition": "start",
+        "tickLength": 0
+      },
+      "export": {
+        "enabled": true
+      }
+
+    } );
+
+
 
     chart_week_delivery.addListener("rendered", zoomChart);
 
