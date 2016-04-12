@@ -53,6 +53,18 @@
             }
         }
       })
+      .state('app.admin-info', {
+        url: 'admin-info',
+        views: {
+            'sub-navbar@': {
+              templateUrl: 'app/components/sub-navbar/admin-info-sub-navbar.html',
+              controller: 'subNavbarCtrl'
+            },
+            'content@': {
+              templateUrl: 'app/admin-info/admin-info.html'
+            }
+        }
+      })
       .state('app.advert-push', {
         url: 'advert/push',
         views: {
