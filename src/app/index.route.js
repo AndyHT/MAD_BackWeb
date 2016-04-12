@@ -223,6 +223,19 @@
             controller: 'backgroundManagementCtrl'
           }
         }
+      })
+      .state('app.statistics', {
+        url: 'statistics',
+        views: {
+          'sub-navbar@': {
+            templateUrl: 'app/components/sub-navbar/statistics-sub-navbar.html',
+            controller: 'subNavbarCtrl'
+          },
+          'content@': {
+            templateUrl: 'app/statistics/statistics.html',
+            controller: 'StatisticsCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
