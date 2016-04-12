@@ -164,6 +164,30 @@
             }
           }
       })
+      .state('app.user.detail-advert', {
+          url: 'user/detail-advert',
+          views: {
+            'sub-navbar@': {
+              templateUrl: 'app/components/sub-navbar/user-detail-sub-navbar.html',
+              controller: 'subNavbarCtrl'
+            },
+            'content@': {
+              templateUrl: 'app/user-detail-advert/user-detail-advert.html'
+            }
+          }
+      })
+      .state('app.user.detail-mobile', {
+          url: 'user/detail-mobile',
+          views: {
+            'sub-navbar@': {
+              templateUrl: 'app/components/sub-navbar/user-detail-sub-navbar.html',
+              controller: 'subNavbarCtrl'
+            },
+            'content@': {
+              templateUrl: 'app/user-detail-mobile/user-detail-mobile.html'
+            }
+          }
+      })
       .state('app.advert-detail', {
         url: 'advert/detail',
         views: {
@@ -234,6 +258,34 @@
           'content@': {
             templateUrl: 'app/statistics/statistics.html',
             controller: 'StatisticsCtrl'
+          }
+        }
+      })
+      .state('app.finance', {
+        url: 'finance',
+        views: {
+          'sub-navbar@': {
+            templateUrl: 'app/components/sub-navbar/finance-sub-navbar.html',
+            controller: 'subNavbarCtrl'
+          },
+          'content@': {
+            templateUrl: 'app/finance/finance.html'
+          }
+        }
+      })
+      .state('app.finance.cash', {
+        url: '/cach',
+        views: {
+          'content@': {
+            templateUrl: 'app/finance-cash/finance-cash.html'
+          }
+        }
+      })
+      .state('app.finance.refund', {
+        url: '/refund',
+        views: {
+          'content@': {
+            templateUrl: 'app/finance-refund/finance-refund.html'
           }
         }
       });
