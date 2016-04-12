@@ -18,6 +18,10 @@
     $scope.adaduit = false;
     $scope.adsearch = false;
 
+    $scope.finance = false;
+    $scope.financecash = false;
+    $scope.financerefund = false;
+
     if ($location.path() == '/user/list-mobile') {
       $scope.user = true;
     }
@@ -25,13 +29,13 @@
       $scope.advert = true;
     }
 
-    if ($location.path() == '/back-auth') {
+    if ($location.path() == '/admin/auth') {
       $scope.userauth = true;
     }
-    if ($location.path() == '/back-userlist') {
+    if ($location.path() == '/admin/userlist') {
       $scope.userlist = true;
     }
-    if ($location.path() == '/back-adduser') {
+    if ($location.path() == '/admin/adduser') {
       $scope.adduser = true;
     }
 
@@ -43,6 +47,18 @@
     }
     if ($location.path() == '/advert/search') {
       $scope.adsearch = true;
+    }
+
+    if ($location.path() == '/finance') {
+      $scope.finance = true;
+    }
+
+    if ($location.path() == '/finance/cash') {
+      $scope.financecash = true;
+    }
+
+    if ($location.path() == '/finance/refund') {
+      $scope.financerefund = true;
     }
 
   }

@@ -2,13 +2,13 @@
     <ul>
         <li><a class="heading">财务对账</a></li>
         <li class="hidden-sm hidden-xs">
-            <a ui-sref="app.finance" ng-class="">对账</a>
+            <a ui-sref="app.finance" ng-class="{'selected': finance}" ui-sref-opts="{reload: true}">对账</a>
         </li>
         <li class="hidden-sm hidden-xs">
-            <a ui-sref="app.finance.cash" ng-class="">提现审核</a>
+            <a ui-sref="app.finance.cash" ng-class="{'selected': financecash}" ui-sref-opts="{reload: true}">提现审核</a>
         </li>
         <li class="hidden-sm hidden-xs">
-            <a ui-sref="app.finance.refund" ng-class="">退款审核</a>
+            <a ui-sref="app.finance.refund" ng-class="{'selected': financerefund}" ui-sref-opts="{reload: true}">退款审核</a>
         </li>
     </ul>
     <div class="custom-search hidden-sm hidden-xs">

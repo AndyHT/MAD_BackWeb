@@ -15,7 +15,8 @@
                 templateUrl: 'app/components/header/header.html'
             },
             'navbar': {
-                templateUrl: 'app/components/navbar/navbar.html'
+                templateUrl: 'app/components/navbar/navbar.html',
+                controller: 'navbarCtrl'
             },
             'sub-navbar': {
                 templateUrl: 'app/components/sub-navbar/dashboard-sub-navbar.html',
@@ -200,8 +201,8 @@
           }
         }
       })
-      .state('app.back-userlist', {
-        url: 'back-userlist',
+      .state('app.admin-userlist', {
+        url: 'admin/userlist',
         views: {
           'navbar@': {
             templateUrl: 'app/components/navbar/navbar.html'
@@ -216,8 +217,8 @@
           }
         }
       })
-      .state('app.back-adduser', {
-        url: 'back-adduser',
+      .state('app.admin-adduser', {
+        url: 'admin/adduser',
         views: {
           'navbar@': {
             templateUrl: 'app/components/navbar/navbar.html'
@@ -232,8 +233,8 @@
           }
         }
       })
-      .state('app.back-auth', {
-        url: 'back-auth',
+      .state('app.admin-auth', {
+        url: 'admin/auth',
         views: {
           'navbar@': {
             templateUrl: 'app/components/navbar/navbar.html'
@@ -274,7 +275,7 @@
         }
       })
       .state('app.finance.cash', {
-        url: '/cach',
+        url: '/cash',
         views: {
           'content@': {
             templateUrl: 'app/finance-cash/finance-cash.html'

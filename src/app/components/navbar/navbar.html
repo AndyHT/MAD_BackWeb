@@ -1,46 +1,46 @@
         <div id="cssmenu">
           <ul>
-            <li class="active">
-              <a href="#"><i class="fa fa-home"></i>首页</a>
+            <li ng-class="{'active': isMain}">
+              <a ui-sref="app" ui-sref-opts="{reload: true}"><i class="fa fa-home"></i>首页</a>
             </li>
-            <li class="">
-              <a><i class="fa fa-bar-chart-o"></i>用户管理</a>
+            <li ng-class="{'active': isUserManage}">
+              <a ui-sref-opts="{reload: true}"><i class="fa fa-bar-chart-o"></i>用户管理</a>
               <ul>
-                 <li><a ui-sref="app.user">用户列表</a>
+                 <li><a ui-sref="app.user" ui-sref-opts="{reload: true}">用户列表</a>
                     <ul>
-                        <li><a ui-sref="app.user">车主用户</a></li>
-                        <li><a ui-sref="app.user.list-advert">广告商用户</a></li>
+                        <li><a ui-sref="app.user" ui-sref-opts="{reload: true}">车主用户</a></li>
+                        <li><a ui-sref="app.user.list-advert" ui-sref-opts="{reload: true}">广告商用户</a></li>
                     </ul>
                  </li>
-                 <li><a ui-sref="app.user.create">创建用户</a></li>
+                 <li><a ui-sref="app.user.create" ui-sref-opts="{reload: true}">创建用户</a></li>
               </ul>
             </li>
-            <li class="">
-              <a><i class="fa fa-table"></i>广告管理</a>
+            <li ng-class="{'active': isAdManage}">
+              <a ui-sref-opts="{reload: true}"><i class="fa fa-table"></i>广告管理</a>
               <ul>
-                 <li><a ui-sref="app.advert-push">发布新广告</a></li>
-                 <li><a ui-sref="app.advert-audit">未审核广告</a></li>
-                 <li><a ui-sref="app.advert-search">广告查询</a></li>
+                 <li><a ui-sref="app.advert-push" ui-sref-opts="{reload: true}">发布新广告</a></li>
+                 <li><a ui-sref="app.advert-audit" ui-sref-opts="{reload: true}">未审核广告</a></li>
+                 <li><a ui-sref="app.advert-search" ui-sref-opts="{reload: true}">广告查询</a></li>
               </ul>
             </li>
-            <li class="">
-              <a><i class="fa fa-suitcase"></i>财务管理</a>
+            <li ng-class="{'active': isFinanceManage}">
+              <a ui-sref-opts="{reload: true}"><i class="fa fa-suitcase"></i>财务管理</a>
               <ul>
-                  <li><a  ui-sref="app.finance">对账</a></li>
-                  <li><a  ui-sref="app.finance.cash">提现审核</a></li>
-                  <li><a  ui-sref="app.finance.refund">退款申请</a></li>
+                  <li><a ui-sref="app.finance" ui-sref-opts="{reload: true}">对账</a></li>
+                  <li><a ui-sref="app.finance.cash" ui-sref-opts="{reload: true}">提现审核</a></li>
+                  <li><a ui-sref="app.finance.refund" ui-sref-opts="{reload: true}">退款申请</a></li>
               </ul>
             </li>
-            <li class="">
-              <a><i class="fa fa-cloud"></i>后台用户管理</a>
+            <li ng-class="{'active': isAdmin}">
+              <a ui-sref-opts="{reload: true}"><i class="fa fa-cloud"></i>后台用户管理</a>
               <ul>
-                <li><a ui-sref="app.back-userlist">用户列表</a></li>
-                <li><a ui-sref="app.back-adduser">添加后台用户</a></li>
-                <li><a ui-sref="app.back-auth">权限管理</a></li>
+                <li><a ui-sref="app.admin-userlist" ui-sref-opts="{reload: true}">用户列表</a></li>
+                <li><a ui-sref="app.admin-adduser" ui-sref-opts="{reload: true}">添加后台用户</a></li>
+                <li><a ui-sref="app.admin-auth" ui-sref-opts="{reload: true}">权限管理</a></li>
               </ul>
             </li>
-            <li class="">
-              <a ui-sref="app.statistics"><i class="fa fa-home"></i>统计信息</a>
+            <li ng-class="{'active': isStatistics}">
+              <a ui-sref="app.statistics" ui-sref-opts="{reload: true}"><i class="fa fa-home"></i>统计信息</a>
             </li>
           </ul>
         </div>
