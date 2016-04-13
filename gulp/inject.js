@@ -17,12 +17,17 @@ gulp.task('inject-reload', ['inject'], function() {
 
 gulp.task('inject', ['scripts'], function () {
   var injectStyles = gulp.src([
-    path.join(conf.paths.src, '/app/**/*.css')
+    path.join(conf.paths.src, '/app/**/*.css'),
+    path.join(conf.paths.bower, '/font-awesome/css/font-awesome.css')
   ], { read: false });
 
   var injectScripts = gulp.src([
     path.join(conf.paths.src, '/app/**/*.module.js'),
     path.join(conf.paths.src, '/app/**/*.js'),
+    path.join(conf.paths.bower, '/bootstrap/dist/js/bootstrap.js'),
+    path.join(conf.paths.bower, '/amcharts3/amcharts/serial.js'),
+    path.join(conf.paths.bower, '/amcharts3/amcharts/pie.js'),
+    path.join(conf.paths.bower, '/amcharts3/amcharts/themes/light.js'),
     path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
     path.join('!' + conf.paths.src, '/app/**/*.mock.js'),
   ])

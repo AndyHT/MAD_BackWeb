@@ -13,6 +13,7 @@
     $scope.isFinanceManage = false;
     $scope.isAdmin = false;
     $scope.isStatistics = false;
+    
     console.log($location.path());
     if ($location.path() == '/') {
       $scope.isMain = true;

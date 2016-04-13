@@ -39,7 +39,8 @@
                 templateUrl: 'app/blank/blank.html'
             },
             'navbar@': {
-                templateUrl: 'app/blank/blank.html'
+                templateUrl: 'app/blank/blank.html',
+                controller: 'navbarCtrl'
             },
             'sub-navbar@': {
                 templateUrl: 'app/blank/blank.html',
@@ -205,7 +206,8 @@
         url: 'admin/userlist',
         views: {
           'navbar@': {
-            templateUrl: 'app/components/navbar/navbar.html'
+            templateUrl: 'app/components/navbar/navbar.html',
+            controller: 'navbarCtrl'
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
@@ -221,7 +223,8 @@
         url: 'admin/adduser',
         views: {
           'navbar@': {
-            templateUrl: 'app/components/navbar/navbar.html'
+            templateUrl: 'app/components/navbar/navbar.html',
+            controller: 'navbarCtrl'
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
@@ -237,7 +240,8 @@
         url: 'admin/auth',
         views: {
           'navbar@': {
-            templateUrl: 'app/components/navbar/navbar.html'
+            templateUrl: 'app/components/navbar/navbar.html',
+            controller: 'navbarCtrl'
           },
           'sub-navbar@': {
             templateUrl: 'app/components/sub-navbar/back-userlist-sub-navbar.html',
