@@ -16,19 +16,19 @@
               <div class="form-group">
                 <label for="" class="col-sm-3 control-label">车主名称</label>
                 <div class="col-sm-9">
-                <p class="form-control-static">Name</p>
+                <p class="form-control-static">{{mobile.name}}</p>
                 </div>
             </div>
             <div class="form-group">
                 <label for="" class="col-sm-3 control-label">用户ID</label>
                 <div class="col-sm-9">
-                <p class="form-control-static">ID</p>
+                <p class="form-control-static">{{mobile.id}}</p>
                 </div>
             </div>
             <div class="form-group">
                 <label for="" class="col-sm-3 control-label">常居地</label>
                 <div class="col-sm-9">
-                <p class="form-control-static">上海</p>
+                <p class="form-control-static">{{mobile.location}}</p>
                 </div>
             </div>
             <br>
@@ -36,7 +36,8 @@
             <hr style="margin-top:10px;">
             <div class="form-group">
                 <div class="col-sm-8 col-sm-offset-2 text-center">
-                <img src="assets/images/vehicle-license.png" width="100%">
+                <!-- <img src="assets/images/vehicle-license.png" width="100%"> -->
+                <img src="{{mobile.vehicleLicenseImage}}" width="100%" alt="行驶证照片">
                 <br>
                 <label for="" class="col-sm-offset-3 col-sm-4 control-label">行驶证照片</label>
                 </div>
@@ -47,13 +48,13 @@
             <div class="form-group">
                 <label for="" class="col-sm-3 control-label">车主邮箱</label>
                 <div class="col-sm-9">
-                <p class="form-control-static">123456789@xxx.com</p>
+                <p class="form-control-static">{{mobile.email}}</p>
                 </div>
             </div>
             <div class="form-group">
                 <label for="" class="col-sm-3 control-label">车主电话</label>
                 <div class="col-sm-9">
-                <p class="form-control-static">13912341234</p>
+                <p class="form-control-static">{{mobile.mobilePhone}}</p>
                 </div>
             </div>
             <hr style="margin-top:10px;">

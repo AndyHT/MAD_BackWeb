@@ -6,14 +6,14 @@
     .controller('navbarCtrl', navbarCtrl);
 
   /** @ngInject */
-  function navbarCtrl($scope, $location, $state) {
+  function navbarCtrl($scope, $location, $state, UserListSrv) {
     $scope.isMain = false;
     $scope.isUserManage = false;
     $scope.isAdManage = false;
     $scope.isFinanceManage = false;
     $scope.isAdmin = false;
     $scope.isStatistics = false;
-    
+
     console.log($location.path());
     if ($location.path() == '/') {
       $scope.isMain = true;
@@ -47,5 +47,4 @@
       $scope.isStatistics = true;
     }
   }
-
 })();

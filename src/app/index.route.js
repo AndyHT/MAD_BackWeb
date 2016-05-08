@@ -114,7 +114,8 @@
                 controller: 'subNavbarCtrl'
             },
             'content@': {
-                templateUrl: 'app/user-list-mobile/user-list-mobile.html'
+                templateUrl: 'app/user-list-mobile/user-list-mobile.html',
+                controller: 'UserListCtrl'
             }
         }
       })
@@ -126,7 +127,8 @@
                 controller: 'subNavbarCtrl'
             },
             'content@': {
-                templateUrl: 'app/user-list-advert/user-list-advert.html'
+                templateUrl: 'app/user-list-advert/user-list-advert.html',
+                controller: 'AdvertListCtrl'
             }
         }
       })
@@ -138,7 +140,8 @@
                 controller: 'subNavbarCtrl'
             },
             'content@': {
-                templateUrl: 'app/user-check-advert/user-check-advert.html'
+                templateUrl: 'app/user-check-advert/user-check-advert.html',
+                controller: 'AdvertListCtrl'
             }
         }
       })
@@ -150,7 +153,8 @@
               controller: 'subNavbarCtrl'
             },
             'content@': {
-              templateUrl: 'app/user-check-mobile/user-check-mobile.html'
+              templateUrl: 'app/user-check-mobile/user-check-mobile.html',
+              controller: 'UserListCtrl'
             }
           }
       })
@@ -174,7 +178,8 @@
               controller: 'subNavbarCtrl'
             },
             'content@': {
-              templateUrl: 'app/user-detail-advert/user-detail-advert.html'
+              templateUrl: 'app/user-detail-advert/user-detail-advert.html',
+              controller: 'AdvertListCtrl'
             }
           }
       })
@@ -186,7 +191,8 @@
               controller: 'subNavbarCtrl'
             },
             'content@': {
-              templateUrl: 'app/user-detail-mobile/user-detail-mobile.html'
+              templateUrl: 'app/user-detail-mobile/user-detail-mobile.html',
+              controller: 'UserListCtrl'
             }
           }
       })
