@@ -6,7 +6,7 @@
     .controller('navbarCtrl', navbarCtrl);
 
   /** @ngInject */
-  function navbarCtrl($scope, $location, $state, UserListSrv) {
+  function navbarCtrl($scope, $location, $state) {
     $scope.isMain = false;
     $scope.isUserManage = false;
     $scope.isAdManage = false;
@@ -14,7 +14,6 @@
     $scope.isAdmin = false;
     $scope.isStatistics = false;
 
-    console.log($location.path());
     if ($location.path() == '/') {
       $scope.isMain = true;
     }
