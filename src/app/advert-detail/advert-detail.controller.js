@@ -10,7 +10,8 @@
     .controller('AdvertDetailCtrl', AdvertDetailCtrl);
 
   /** @ngInject */
-  function AdvertDetailCtrl() {
+  function AdvertDetailCtrl($scope) {
+  	
 
   }
 })();
