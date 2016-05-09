@@ -175,7 +175,7 @@
     });
 
     //第三排download图
-    var chart = AmCharts.makeChart( "gg1", {
+    var chart = AmCharts.makeChart( "downloadChart", {
       "type": "serial",
       "theme": "default",
       "dataProvider": [ {

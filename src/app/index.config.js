@@ -5,6 +5,10 @@
     .module('madBackWeb')
     .config(config);
 
+    // 参考刷票页面，未完成
+    // miao.value('baseURL', 'http://139.129.40.57:9090/back');
+    // miao.config(function($httpProvider) {$httpProvider.interceptors.push('myInterceptor');});
+
   /** @ngInject */
   function config($logProvider, toastrConfig) {
     // Enable log
@@ -17,5 +21,6 @@
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
   }
+  angular.module('madBackWeb').value('baseURL', 'http://localhost:4000/back');
 
 })();

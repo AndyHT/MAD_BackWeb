@@ -1,7 +1,7 @@
 <div class="dashboard-wrapper-lg">
           <!-- Left Sidebar Start -->
           <div class="left-sidebar">
-            
+
             <!-- Row Start -->
             <div class="row">
               <div class="col-lg-12 col-md-12">
@@ -36,7 +36,28 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+                        <tr ng-repeat="user in filtered=(userList | filter:filterByCategory)">
+                          <td>
+                            <a ui-sref="app.user.detail-mobile">
+                              <span class="name">{{user.id}}</span>
+                            </a>
+                          </td>
+                          <td>{{user.name}}</td>
+                          <td>
+                            <span class="label {{user.statusClass}}">
+                              {{user.state}}
+                            </span>
+                          </td>
+                          <td>{{user.registrationDate}}</td>
+                          <td class="hidden-xs">
+                            <div class="btn-group">
+                              <button ui-sref="{{user.uiSref}}" class="btn btn-default btn-xs" ng-click="getDetailById(user.id)">
+                                {{user.operator}}
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- <tr>
                           <td>
                             <a ui-sref="app.user.detail-advert">
                                 <span class="name">Mahendra Singh Dhoni</span>
@@ -47,7 +68,7 @@
                           </td>
                           <td>
                             <span class="label label-info">
-                              New
+                              待审核
                             </span>
                           </td>
                           <td>
@@ -62,7 +83,6 @@
                           </td>
                         </tr>
                         <tr>
-                         
                           <td>
                             <a ui-sref="app.user.detail-advert">
                                 <span class="name">Mahendra Singh Dhoni</span>
@@ -73,7 +93,7 @@
                           </td>
                           <td>
                             <span class="label label-success">
-                              New
+                              审核通过
                             </span>
                           </td>
                           <td>
@@ -82,13 +102,12 @@
                           <td class="hidden-xs">
                             <div class="btn-group ">
                               <button class="btn btn-default btn-xs" ui-sref="app.user.detail-advert">
-                                广告商详情 
+                                广告商详情
                               </button>
                             </div>
                           </td>
                         </tr>
                         <tr>
-          
                           <td>
                             <a ui-sref="app.user.detail-advert">
                                 <span class="name">Mahendra Singh Dhoni</span>
@@ -98,8 +117,8 @@
                             Baswa #342
                           </td>
                           <td>
-                            <span class="label label-danger">
-                              New
+                            <span class="label label-success">
+                              审核通过
                             </span>
                           </td>
                           <td>
@@ -108,7 +127,7 @@
                           <td class="hidden-xs">
                             <div class="btn-group ">
                               <button class="btn btn-default btn-xs" ui-sref="app.user.detail-advert">
-                                广告商详情 
+                                广告商详情
                               </button>
                             </div>
                           </td>
@@ -124,7 +143,7 @@
                           </td>
                           <td>
                             <span class="label label-info">
-                              New
+                              待审核
                             </span>
                           </td>
                           <td>
@@ -133,13 +152,13 @@
                           <td class="hidden-xs">
                             <div class="btn-group ">
                               <button ui-sref="app.user.check-advert" class="btn btn-default btn-xs">
-                                审核广告商 
+                                审核广告商
                               </button>
                             </div>
                           </td>
                         </tr>
                         <tr>
-                   
+
                           <td>
                             <a ui-sref="app.user.detail-advert">
                                 <span class="name">Mahendra Singh Dhoni</span>
@@ -150,7 +169,7 @@
                           </td>
                           <td>
                             <span class="label label-success">
-                              New
+                              审核通过
                             </span>
                           </td>
                           <td>
@@ -159,11 +178,11 @@
                           <td class="hidden-xs">
                             <div class="btn-group ">
                               <button class="btn btn-default btn-xs" ui-sref="app.user.detail-advert">
-                                广告商详情 
+                                广告商详情
                               </button>
                             </div>
                           </td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
                     <nav class="text-center">
@@ -189,7 +208,7 @@
                 </div>
               </div>
             </div>
-            <!-- Row End -->         
+            <!-- Row End -->
 
           </div>
           <!-- Left Sidebar End -->
@@ -201,7 +220,7 @@
                 <thead>
                   <tr>
                     <th style="width:10%">
-                      <input type="checkbox" class="no-margin" />
+                      <!-- <input type="checkbox" class="no-margin" /> -->
                     </th>
                     <th style="width:70%">
                       用户状态
@@ -212,7 +231,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr ng-repeat="cat in categories">
+                    <td>
+                      <input type="checkbox" class="no-margin" ng-model="filter[cat.status]">
+                    </td>
+                    <td>
+                      <span class="name">
+                        {{cat.name}}
+                      </span>
+                    </td>
+                    <td>
+                      <span class="label {{cat.labelClass}}">
+                        {{cat.info}}
+                      </span>
+                    </td>
+                  </tr>
+                  <!-- <tr>
                     <td>
                       <input type="checkbox" class="no-margin" />
                     </td>
@@ -223,7 +257,7 @@
                     </td>
                     <td>
                       <span class="label label-info">
-                        New
+                        待审核
                       </span>
                     </td>
                   </tr>
@@ -238,7 +272,7 @@
                     </td>
                     <td>
                       <span class="label label-success">
-                        New
+                        审核通过
                       </span>
                     </td>
                   </tr>
@@ -252,15 +286,14 @@
                       </span>
                     </td>
                     <td>
-                      <span class="label label-warning">
-                        New
+                      <span class="label label-danger">
+                        审核未通过
                       </span>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
           </div>
           <!-- Right Sidebar End -->
 </div>
-
