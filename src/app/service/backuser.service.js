@@ -10,9 +10,7 @@
   /** @ngInject*/
   function BackUserListSrv($resource, baseURL) {
     this.getBackUserInfo = function () {
-      return $resource(baseURL + '/backuser/list?token=:token', {
-        token: "@token"
-      });
+      return $resource(baseURL + '/backuser/list');
     };
   }
 
@@ -27,5 +25,5 @@
       return $resource(baseURL + '/backuser/manage');
     }
   }
-  
+
 })();

@@ -1,16 +1,12 @@
 (function() {
   'use strict';
-
   angular
     .module('madBackWeb')
     .config(config);
 
-    // 参考刷票页面，未完成
-    // miao.value('baseURL', 'http://139.129.40.57:9090/back');
-    // miao.config(function($httpProvider) {$httpProvider.interceptors.push('myInterceptor');});
-
   /** @ngInject */
-  function config($logProvider, toastrConfig) {
+  function config($httpProvider, $logProvider, toastrConfig) {
+    $httpProvider.interceptors.push('myInterceptor');
     // Enable log
     $logProvider.debugEnabled(true);
 

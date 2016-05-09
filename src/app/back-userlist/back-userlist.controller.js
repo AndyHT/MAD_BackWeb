@@ -9,11 +9,11 @@
     .directive('cancel', cancel);
 
   /** @ngInject */
-  function backgroundManagementCtrl($scope, BackUserListSrv, AddBackUserSrv, UpdateLevelSrv) {
+  function backgroundManagementCtrl($scope, $state, BackUserListSrv, AddBackUserSrv, UpdateLevelSrv, TokenSrv) {
     $scope.copy = null;
-    var token = '506902848235ee96192b0454850aed83a5a1fe1a56e4be8a664eeb374e7aa37f';
+
     BackUserListSrv.getBackUserInfo().get({
-      token: token
+      // token: token
     }).$promise.then(
       function (response) {
         $scope.userList = response.backUserList;
@@ -28,7 +28,7 @@
         console.log('无法提交!');
       } else {
         AddBackUserSrv.addBackUser().save({
-          token: token,
+          // token: token,
           userName: name,
           email: email,
           gender: gender,
@@ -76,11 +76,10 @@
       link: function(scope, element, attrs, ngModel){
         element.bind("click",function(){
           var id = "level_" + ngModel.$modelValue.id;
-          var token = '506902848235ee96192b0454850aed83a5a1fe1a56e4be8a664eeb374e7aa37f';
           // console.log('id: ' + ngModel.$modelValue.id);
           // console.log('newLevel: ' + ngModel.$modelValue.level);
           UpdateLevelSrv.updateAdminLevel().save({
-            token: token,
+            // token: token,
             id: ngModel.$modelValue.id,
             newLevel: ngModel.$modelValue.level
           }).$promise.then(

@@ -7,10 +7,8 @@
 
   /** @ngInject */
   function UserListCtrl($rootScope, $scope, $state, UserListSrv, GetUserDetailSrv) {
-    var token = '506902848235ee96192b0454850aed83a5a1fe1a56e4be8a664eeb374e7aa37f';
     var tag = 1;
     UserListSrv.getUserInfo().get({
-      token: token,
       tag: tag
     }).$promise.then(
       function (response) {
@@ -56,7 +54,6 @@
     $scope.getDetailById = function (id) {
       GetUserDetailSrv.getUserDetailById().get({
         userid: id,
-        token: token,
         tag: tag
       }).$promise.then(
         function (response) {

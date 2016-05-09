@@ -8,8 +8,7 @@
   /** @ngInject*/
   function UserListSrv($resource, baseURL) {
     this.getUserInfo = function () {
-      return $resource(baseURL + '/user/list?token=:token&tag=:tag', {
-        token: "@token",
+      return $resource(baseURL + '/user/list?tag=:tag', {
         tag: "@tag"
       });
     };
