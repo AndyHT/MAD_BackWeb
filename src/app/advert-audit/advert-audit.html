@@ -21,31 +21,15 @@
             </thead>
             <tbody>
             <!--第一条样例-->
-              <tr>
-                <td>3298749823749</td>
-                <td>香水广告香水广告</td>
+              <tr ng-repeat="advert in advertList">
+                <td>{{advert.id}}</td>
+                <td>{{advert.title}}</td>
                 <td>
                   <span class="label label-info">
-                    普通广告
+                    {{advert.catalog}}
                   </span>
                 </td>
-                <td>迪奥公司</td>
-                <td class="hidden-xs">
-                  <button class="btn btn-warning btn-xs" onclick="window.location.href='#/advert/detail'">
-                    查看详情/审核
-                  </button>
-                </td>
-              </tr>
-              <!--第二条样例-->
-              <tr>
-                <td>3298749823749</td>
-                <td>香水广告香水广告</td>
-                <td>
-                  <span class="label label-success">
-                    公益广告
-                  </span>
-                </td>
-                <td>迪奥公司</td>
+                <td>{{advert.belongTo}}</td>
                 <td class="hidden-xs">
                   <button class="btn btn-warning btn-xs" onclick="window.location.href='#/advert/detail'">
                     查看详情/审核
