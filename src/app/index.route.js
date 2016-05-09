@@ -12,7 +12,8 @@
         url: '/',
         views: {
             'header': {
-                templateUrl: 'app/components/header/header.html'
+                templateUrl: 'app/components/header/header.html',
+                controller: 'HeaderCtrl'
             },
             'navbar': {
                 templateUrl: 'app/components/navbar/navbar.html',
@@ -24,8 +25,7 @@
             },
             'content': {
                 templateUrl: 'app/dashboard/dashboard.html',
-                controller: 'MainController',
-                controllerAs: 'dashboard'
+                controller: 'MainController'
             },
             'footer': {
                 templateUrl: 'app/components/footer/footer.html'
@@ -63,7 +63,8 @@
               controller: 'subNavbarCtrl'
             },
             'content@': {
-              templateUrl: 'app/admin-info/admin-info.html'
+              templateUrl: 'app/admin-info/admin-info.html',
+              controller: 'AdminInfoCtrl'
             }
         }
       })

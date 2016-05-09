@@ -12,9 +12,8 @@
   function backgroundManagementCtrl($scope, $state, BackUserListSrv, AddBackUserSrv, UpdateLevelSrv, TokenSrv) {
     $scope.copy = null;
 
-    BackUserListSrv.getBackUserInfo().get({
-      // token: token
-    }).$promise.then(
+    BackUserListSrv.getBackUserInfo().get()
+    .$promise.then(
       function (response) {
         $scope.userList = response.backUserList;
       }, function (error) {
@@ -28,7 +27,6 @@
         console.log('无法提交!');
       } else {
         AddBackUserSrv.addBackUser().save({
-          // token: token,
           userName: name,
           email: email,
           gender: gender,
@@ -36,7 +34,7 @@
           hireDate: hireDate
         }).$promise.then(
           function (response) {
-            console.log(response.errCode);
+            $state.go('app.admin-userlist');
           }, function (error) {
             console.log(error);
           }

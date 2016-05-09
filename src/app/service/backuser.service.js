@@ -5,13 +5,14 @@
   .module('madBackWeb')
   .service('BackUserListSrv', BackUserListSrv)
   .service('AddBackUserSrv', AddBackUserSrv)
-  .service('UpdateLevelSrv', UpdateLevelSrv);
+  .service('UpdateLevelSrv', UpdateLevelSrv)
+  .service('UpdateAdminInfoSrv', UpdateAdminInfoSrv);
 
   /** @ngInject*/
   function BackUserListSrv($resource, baseURL) {
     this.getBackUserInfo = function () {
       return $resource(baseURL + '/backuser/list');
-    };
+    }
   }
 
   function  AddBackUserSrv($resource, baseURL) {
@@ -26,4 +27,9 @@
     }
   }
 
+  function UpdateAdminInfoSrv($resource, baseURL) {
+    this.updateAdminInfo = function () {
+      return $resource(baseURL + '/backuser/modify');
+    }
+  }
 })();
