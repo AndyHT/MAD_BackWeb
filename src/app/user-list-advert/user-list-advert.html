@@ -38,7 +38,7 @@
                       <tbody>
                         <tr ng-repeat="user in filtered=(userList | filter:filterByCategory)">
                           <td>
-                            <a ui-sref="app.user.detail-mobile">
+                            <a ui-sref="app.user.detail-mobile" ng-click="getDetailById(user.id)">
                               <span class="name">{{user.id}}</span>
                             </a>
                           </td>

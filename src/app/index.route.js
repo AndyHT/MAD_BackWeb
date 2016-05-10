@@ -142,7 +142,7 @@
             },
             'content@': {
                 templateUrl: 'app/user-check-advert/user-check-advert.html',
-                controller: 'AdvertListCtrl'
+                controller: 'UserCheckCtrl'
             }
         }
       })
@@ -155,7 +155,7 @@
             },
             'content@': {
               templateUrl: 'app/user-check-mobile/user-check-mobile.html',
-              controller: 'UserListCtrl'
+              controller: 'UserCheckCtrl'
             }
           }
       })
