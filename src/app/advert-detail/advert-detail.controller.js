@@ -11,6 +11,7 @@
 
   /** @ngInject */
   function AdvertDetailCtrl($scope, $state, auditAdsSrv) {
+    //审核广告，根据tag=0或1来区别通过与不通过
   	$scope.audit = function(id,tag){
   	auditAdsSrv.auditAds().save({},{
   		id: id,
@@ -31,6 +32,7 @@
     );
   	};
 
+    //下架广告，蒙版问题还没有解决，暂时没有跳转，只是刷新本页
   	$scope.remove = function(id,reason){
   	auditAdsSrv.removeAds().save({},{
   		id: id,

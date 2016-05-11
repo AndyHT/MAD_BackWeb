@@ -12,7 +12,7 @@
   function AdvertAuditCtrl($scope, $state, adsListSrv, adDetailSrv, $rootScope) {
   	var token = "";
   	adsListSrv.getNotAuditList().save({},{
-  		token: token, 
+  		//token: token, 
   		tag: 1
   	}).$promise.then(
       function (response) {
@@ -24,6 +24,7 @@
     );
   
 
+//显示广告详情，投放商圈没有处理，因为数据格式不确定
    $scope.adsDetail = function(id) {
    //	window.location.href='http://localhost:3000/#/advert/detail';
    	$state.go('app.advert-detail');
@@ -32,7 +33,7 @@
    	//var broadcastLocation = {}；
 
    	adDetailSrv.getAdDetail().save({},{
-   		token: token,
+   		//token: token,
    		id: id
    	}).$promise.then(
    	function (response){
