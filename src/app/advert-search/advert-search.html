@@ -20,30 +20,32 @@
                   <form>
                     <div class="form-group">
                       <label for="">广告编号</label>
-                      <input type="text" class="form-control" placeholder="输入广告编号">
+                      <input type="text" class="form-control" placeholder="输入广告编号" ng-model="id">
                     </div>
                     <div class="form-group">
                       <label for="">广告标题</label>
-                      <input type="text" class="form-control" placeholder="输入广告标题">
+                      <input type="text" class="form-control" placeholder="输入广告标题" ng-model="title">
                     </div>
                     <div class="form-group">
-                      <label for="">广告投放地点</label>
-                      <select class="form-control">
+                      <!-- <label for="">广告投放地点</label>
+                      <select class="form-control" ng-model="location">
                         <option>8:00-12:00</option>
                         <option>12:00-16:00</option>
                         <option>16:00-20:00</option>
-                      </select>
+                      </select> -->
+                      <label for="">广告投放地点</label>
+                      <input type="text" class="form-control" placeholder="输入广告投放地点" ng-model="location">
                     </div>
                     <div class="form-group">
                       <label for="">播放起始日期</label>
-                      <input type="date" class="form-control">
+                      <input id="myDate" type="date" class="form-control" ng-model="startDate">
                     </div>
                     <div class="form-group">
                       <label for="">播放结束日期</label>
-                      <input type="date" class="form-control">
+                      <input type="date" class="form-control" ng-model="endDate">
                     </div>
                     <div class="text-center">
-                      <button class="btn btn-success" style="width:80%;">查询</button>
+                      <button class="btn btn-success" style="width:80%;" ng-click="search(id,title,location,startDate,endDate)">查询</button>
                     </div>
                   </form>
                 </div>
@@ -59,21 +61,21 @@
                   <th>广告编号</th>
                   <th>广告标题</th>
                   <th>广告类别</th>
-                  <th>申请人</th>
+                  <th>申请人(所属人)</th>
                   <th>广告状态</th>
                   <th>编辑</th>
                 </tr>
                 </thead>
                 <tbody>
                 <!--第一条样例-->
-                <tr>
-                  <td>3298749823749</td>
-                  <td>香水广告香水广告</td>
-                  <td class="ordinary-advert">普通广告</td>
-                  <td>迪奥公司</td>
+                <tr ng-repeat="item in resultList">
+                  <td>{{item.adId}}</td>
+                  <td>{{item.title}}</td>
+                  <td class="ordinary-advert">{{item.catalog}}</td>
+                  <td>{{item.advertiser}}</td>
                   <td>
                       <span class="label label-success">
-                        审核通过
+                        {{item.status}}
                       </span>
                   </td>
                   <td class="hidden-xs">
@@ -91,51 +93,6 @@
                         </li>
                       </ul>
                     </div>
-                  </td>
-                </tr>
-                <!--第二条样例-->
-                <tr>
-                  <td>3298749823749</td>
-                  <td>香水广告香水广告</td>
-                  <td class="walfare-advert">公益广告</td>
-                  <td>迪奥公司</td>
-                  <td>
-                      <span class="label label-danger">
-                        审核未通过
-                      </span>
-                  </td>
-                  <td class="hidden-xs">
-                    <div class="dropdown">
-                      <button class="dropdown-toggle btn btn-info btn-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        操作
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li>
-                          <a ui-sref="app.advert-detail">查看详情</a>
-                        </li>
-                        <li>
-                          <a href="#">下架</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <!--第3条样例-->
-                <tr>
-                  <td>3298749823749</td>
-                  <td>香水广告香水广告</td>
-                  <td class="walfare-advert">公益广告</td>
-                  <td>迪奥公司</td>
-                  <td>
-                      <span class="label label-warning">
-                        待审核
-                      </span>
-                  </td>
-                  <td class="hidden-xs">
-                    <button class="btn btn-info btn-xs" ui-sref="app.advert-detail">
-                      查看详情/审核
-                    </button>
                   </td>
                 </tr>
                 </tbody>

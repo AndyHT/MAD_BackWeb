@@ -37,64 +37,24 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+                        <tr ng-repeat="item in financeList">
                           <td>
-                            广告商充值
+                            {{item.catalog}}
                           </td>
                           <td>
-                            Baswa #567
+                            {{item.userId}}
                           </td>
                           <td>
-                            test@alipay.com
+                            {{item.account}}
                           </td>
                            <td>
-                            100.00
+                            {{item.money}}
                           </td>
                           <td>
-                            15 - 02 - 2013
+                            {{item.completedDate}}
                           </td>
                           <td>
-                            xxx
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            广告商退款
-                          </td>
-                          <td>
-                            Baswa #567
-                          </td>
-                          <td>
-                            test@alipay.com
-                          </td>
-                           <td>
-                            100.00
-                          </td>
-                          <td>
-                            15 - 02 - 2013
-                          </td>
-                          <td>
-                            xxx
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            车主用户提现
-                          </td>
-                          <td>
-                            Baswa #567
-                          </td>
-                          <td>
-                            test@alipay.com
-                          </td>
-                           <td>
-                            100.00
-                          </td>
-                          <td>
-                            15 - 02 - 2013
-                          </td>
-                          <td>
-                            xxx
+                            {{item.operatorName}}
                           </td>
                         </tr>
                       </tbody>

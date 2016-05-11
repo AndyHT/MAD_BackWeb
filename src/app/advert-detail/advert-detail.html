@@ -42,37 +42,37 @@
               <label for="" class="col-sm-2 col-xs-12 control-label">投放商圈</label>
               <div class="checkbox col-sm-10 col-xs-8">
                 <label>
-                  <input type="checkbox" disabled value="" checked>五角场
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.wujiaochang" checked>五角场
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="" checked>人民广场
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.renminguangchang" checked>人民广场
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="" checked>徐家汇
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.xujiahui" checked>徐家汇
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="" checked>静安寺
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.jingansi" checked>静安寺
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="" checked>陆家嘴
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.lujiazui" checked>陆家嘴
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="" checked>世纪公园
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.shijigongyuan" checked>世纪公园
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="">中山公园
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.zhongshangongyuan" >中山公园
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="">张江
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.zhangjiang" >张江
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="">南京东路
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.nanjingdonglu" >南京东路
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="">虹桥
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.hongqiao" >虹桥
                 </label>
                 <label>
-                  <input type="checkbox" disabled value="">浦东机场
+                  <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.pudongjichang" >浦东机场
                 </label>
               </div>
             </div>
@@ -91,10 +91,10 @@
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <!--未审核的显示以下两个button-->
-                <button type="submit" class="btn btn-success btn-advert">审核通过</button>
-                <button type="submit" class="btn btn-danger btn-advert">审核不通过</button>
+                <button type="submit" class="btn btn-success btn-advert" ng-click="audit(ad_id,1)">审核通过</button>
+                <button type="submit" class="btn btn-danger btn-advert" ng-click="audit(ad_id,0)">审核不通过</button>
                 <!--审核通过的显示下面这个button-->
-                <button type="submit" class="btn btn-danger btn-advert">下架</button>
+                <button type="submit" class="btn btn-danger btn-advert" data-toggle="modal" data-target="#myModal">下架</button>
               </div>
             </div>
           </form>
@@ -103,5 +103,26 @@
     </div>
   </div>
   <!-- Row End -->
+</div>
+
+<!-- 因为这里缺少一个模态框，所以我临时加了一个暂时的，样式什么的都没调 -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">下架理由</h4>
+      </div>
+      <div class="modal-body">
+        <textarea style="width: 100%" ng-model="reason"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="remove(ad_id,reason)">确定</button>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- Dashboard Wrapper End -->

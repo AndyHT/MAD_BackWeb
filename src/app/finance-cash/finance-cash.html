@@ -19,208 +19,57 @@
                           <th style="width:20%">
                             用户名称
                           </th>
-                          <th style="width:20%" class="hidden-xs">
+                          <th style="width:17%" class="hidden-xs">
                             用户ID
                           </th>
-                          <th style="width:20%" class="hidden-xs">
+                          <th style="width:17%" class="hidden-xs">
                             提现账户
                           </th>
-                          <th style="width:20%" class="hidden-xs">
+                          <th style="width:10%" class="hidden-xs">
                             提现金额
                           </th>
-                          <th style="width:10%" class="hidden-xs">
+                          <th style="width:20%" class="hidden-xs">
                             申请日期
                           </th>
-                          <th style="width:10%" class="hidden-xs">
+                          <th style="width:16%" class="hidden-xs">
                             操作
                           </th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+                        <tr ng-repeat="item in cashApplyList">
                           <td>
                             <a ui-sref="app.user.detail-mobile">
-                                <span class="name">Mahendra Singh Dhoni</span>
+                                <span class="name">{{item.userName}}</span>
                             </a>
                           </td>
                           <td>
-                            Baswa #567
+                            {{item.userId}}
                           </td>
                           <td>
-                            test@alipay.com
+                            {{item.account}}
                           </td>
                            <td>
-                            100.00
+                            {{item.money}}
                           </td>
                           <td>
-                            15 - 02 - 2013
+                            {{item.applyDate}}
                           </td>
                           <td class="hidden-xs">
                             <div class="btn-group">
-                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal">
+                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal" ng-click="pass(item.id)">
                                 完成提现
                               </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <a ui-sref="app.user.detail-mobile">
-                                <span class="name">Mahendra Singh Dhoni</span>
-                            </a>
-                          </td>
-                          <td>
-                            Baswa #567
-                          </td>
-                          <td>
-                            test@alipay.com
-                          </td>
-                           <td>
-                            100.00
-                          </td>
-                          <td>
-                            15 - 02 - 2013
-                          </td>
-                          <td class="hidden-xs">
-                            <div class="btn-group">
-                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal">
-                                完成提现
+                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal" ng-click="reject(item.id)">
+                                拒绝提现
                               </button>
                             </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <a ui-sref="app.user.detail-mobile">
-                                <span class="name">Mahendra Singh Dhoni</span>
-                            </a>
-                          </td>
-                          <td>
-                            Baswa #567
-                          </td>
-                          <td>
-                            test@alipay.com
-                          </td>
-                           <td>
-                            100.00
-                          </td>
-                          <td>
-                            15 - 02 - 2013
-                          </td>
-                          <td class="hidden-xs">
-                            <div class="btn-group">
-                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal">
-                                完成提现
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <a ui-sref="app.user.detail-mobile">
-                                <span class="name">Mahendra Singh Dhoni</span>
-                            </a>
-                          </td>
-                          <td>
-                            Baswa #567
-                          </td>
-                          <td>
-                            test@alipay.com
-                          </td>
-                           <td>
-                            100.00
-                          </td>
-                          <td>
-                            15 - 02 - 2013
-                          </td>
-                          <td class="hidden-xs">
-                            <div class="btn-group">
-                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal">
-                                完成提现
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <a ui-sref="app.user.detail-mobile">
-                                <span class="name">Mahendra Singh Dhoni</span>
-                            </a>
-                          </td>
-                          <td>
-                            Baswa #567
-                          </td>
-                          <td>
-                            test@alipay.com
-                          </td>
-                           <td>
-                            100.00
-                          </td>
-                          <td>
-                            15 - 02 - 2013
-                          </td>
-                          <td class="hidden-xs">
-                            <div class="btn-group">
-                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal">
-                                完成提现
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <a ui-sref="app.user.detail-mobile">
-                                <span class="name">Mahendra Singh Dhoni</span>
-                            </a>
-                          </td>
-                          <td>
-                            Baswa #567
-                          </td>
-                          <td>
-                            test@alipay.com
-                          </td>
-                           <td>
-                            100.00
-                          </td>
-                          <td>
-                            15 - 02 - 2013
-                          </td>
-                          <td class="hidden-xs">
-                            <div class="btn-group">
-                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal">
-                                完成提现
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <a ui-sref="app.user.detail-mobile">
-                                <span class="name">Mahendra Singh Dhoni</span>
-                            </a>
-                          </td>
-                          <td>
-                            Baswa #567
-                          </td>
-                          <td>
-                            test@alipay.com
-                          </td>
-                           <td>
-                            100.00
-                          </td>
-                          <td>
-                            15 - 02 - 2013
-                          </td>
-                          <td class="hidden-xs">
-                            <div class="btn-group">
-                              <button class="btn btn-default btn-xs" data-toggle="modal" data-target="#exampleModal">
-                                完成提现
-                              </button>
-                            </div>
+                            
                           </td>
                         </tr>
                       </tbody>
                     </table>
+
                     <nav class="text-center">
                         <ul class="pagination">
                         <li>
@@ -259,17 +108,17 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="control-label">经办人:</label>
-            <input type="text" class="form-control" id="recipient-name" placeholder="经办人账号">
+            <input type="text" class="form-control" id="recipient-name" placeholder="经办人账号" ng-model="username">
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">密码:</label>
-            <input type="password" class="form-control" id="recipient-name" placeholder="请输入经办人密码">
+            <input type="password" class="form-control" id="recipient-name" placeholder="请输入经办人密码" ng-model="password">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">完成</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="completeCash(username,password,tag,applyId)">完成</button>
       </div>
     </div>
   </div>

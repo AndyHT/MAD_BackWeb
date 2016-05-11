@@ -205,7 +205,8 @@
             controller: 'subNavbarCtrl'
           },
           'content@': {
-            templateUrl: 'app/advert-detail/advert-detail.html'
+            templateUrl: 'app/advert-detail/advert-detail.html',
+            controller: 'AdvertDetailCtrl'
           }
         }
       })
@@ -281,7 +282,8 @@
             controller: 'subNavbarCtrl'
           },
           'content@': {
-            templateUrl: 'app/finance/finance.html'
+            templateUrl: 'app/finance/finance.html',
+            controller: 'FinanceDetailCtrl'
           }
         }
       })
@@ -289,7 +291,8 @@
         url: '/cash',
         views: {
           'content@': {
-            templateUrl: 'app/finance-cash/finance-cash.html'
+            templateUrl: 'app/finance-cash/finance-cash.html',
+            controller: 'cashApplyCtrl'
           }
         }
       })
@@ -297,7 +300,8 @@
         url: '/refund',
         views: {
           'content@': {
-            templateUrl: 'app/finance-refund/finance-refund.html'
+            templateUrl: 'app/finance-refund/finance-refund.html',
+            controller: 'refundApplyCtrl'
           }
         }
       });
