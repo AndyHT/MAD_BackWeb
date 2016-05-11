@@ -13,19 +13,17 @@
             if (arguments[0].method === 'GET' || arguments[0].method === 'DELETE' || arguments[0].method === 'OPTIONS') {
               arguments[0].params = arguments[0].params || {};
               arguments[0].params.token = TokenSrv.getToken();
-              console.log(TokenSrv.getToken());
             }
             if (arguments[0].method === 'POST' || arguments[0].method === 'PUT') {
               arguments[0].data = arguments[0].data || {};
               arguments[0].data.token = TokenSrv.getToken();
-              console.log(TokenSrv.getToken());
             }
           }
           return config;
         },
         response: function (response) {
+          // console.log(response);
           if (response.data.errCode === 101) {
-            console.log(TokenSrv.getToken());
             $injector.get('NoticeSrv').notice($injector.get('ErrorSrv').getError(response.data.errCode));
             var $state = $injector.get('$state');
             $state.go('app.login');
@@ -34,7 +32,6 @@
             $injector.get('NoticeSrv').error($injector.get('ErrorSrv').getError(response.data.errCode));
             var $state = $injector.get('$state');
             $state.go('app.login');
-            console.log(response);
           }
           return response;
         }

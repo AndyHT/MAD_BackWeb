@@ -6,11 +6,9 @@
   .controller('AdvertListCtrl', AdvertListCtrl);
 
   /** @ngInject */
-  function AdvertListCtrl($rootScope, $scope, $state, UserListSrv, GetUserDetailSrv, TokenSrv) {
-    // var token = TokenSrv.getToken();
+  function AdvertListCtrl($rootScope, $scope, $state, UserListSrv, GetUserDetailSrv) {
     var tag = 2;
     UserListSrv.getUserInfo().get({
-      // token: token,
       tag: tag
     }).$promise.then(
       function (response) {
@@ -56,7 +54,6 @@
     $scope.getDetailById = function (id) {
       GetUserDetailSrv.getUserDetailById().get({
         userid: id,
-        // token: token,
         tag: tag
       }).$promise.then(
         function (response) {
@@ -65,7 +62,7 @@
             id: response.userDetail.id,
             status: response.userDetail.status,
             email: response.userDetail.email,
-            registerData: response.userDetail.detail.registerData,
+            registerDate: response.userDetail.detail.registerDate,
             type: response.userDetail.detail.type,
             licenseType: response.userDetail.detail.licenseType,
             licenseImage: response.userDetail.detail.licenseImage,

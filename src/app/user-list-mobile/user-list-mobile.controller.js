@@ -35,6 +35,18 @@
         }
         $scope.userList = list;
         $scope.filter = {};
+
+        // $scope.filteredList = []
+        // ,$scope.currentPage = 1
+        // ,$scope.numPerPage = 5
+        // ,$scope.maxSize = 10;
+        //
+        // $scope.$watch("currentPage + numPerPage", function() {
+        //   var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+        //   , end = begin + $scope.numPerPage;
+        //   $scope.filteredList = $scope.userList.slice(begin, end);
+        // });
+
         $scope.filterByCategory = function (user) {
           return $scope.filter[user.status] || noFilter($scope.filter);
         }
