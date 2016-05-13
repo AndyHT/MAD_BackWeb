@@ -9,7 +9,7 @@
     .directive('cancel', cancel);
 
   /** @ngInject */
-  function backgroundManagementCtrl($scope, $state, BackUserListSrv, AddBackUserSrv, UpdateLevelSrv, TokenSrv) {
+  function backgroundManagementCtrl($scope, $state, BackUserListSrv, AddBackUserSrv, UpdateLevelSrv, TokenSrv, NoticeSrv, ErrorSrv) {
     $scope.copy = null;
 
     BackUserListSrv.getBackUserInfo().get()
@@ -23,9 +23,22 @@
 
     $scope.addUser = function (name, email, gender, level, hireDate) {
       var token = '506902848235ee96192b0454850aed83a5a1fe1a56e4be8a664eeb374e7aa37f';
-      if (!name || !email || !gender || !level || !hireDate) {
-        console.log('无法提交!');
-      } else {
+      if (!name && email && gender && level && hireDate) {
+        NoticeSrv.notice(ErrorSrv.getError('410'));
+      }
+      if (name && !email && gender && level && hireDate) {
+        NoticeSrv.notice(ErrorSrv.getError('411'));
+      }
+      if (name && email && !gender && level && hireDate) {
+        NoticeSrv.notice(ErrorSrv.getError('412'));
+      }
+      if (name && email && gender && !level && hireDate) {
+        NoticeSrv.notice(ErrorSrv.getError('413'));
+      }
+      if (name && email && gender && level && !hireDate) {
+        NoticeSrv.notice(ErrorSrv.getError('414'));
+      }
+      else if (name && email && gender && level && hireDate){
         AddBackUserSrv.addBackUser().save({
           userName: name,
           email: email,
@@ -39,6 +52,9 @@
             console.log(error);
           }
         )
+      }
+      else {
+        NoticeSrv.notice(ErrorSrv.getError('415'));
       }
     }
 

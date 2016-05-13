@@ -6,7 +6,7 @@
   .directive('modal', modal)
   .controller('UserCheckCtrl', UserCheckCtrl);
 
-  function UserCheckCtrl ($rootScope, $scope, $state, CheckUserSrv) {
+  function UserCheckCtrl ($rootScope, $scope, $state, CheckUserSrv, NoticeSrv, ErrorSrv) {
     $scope.checkSuccess = function (id, tag) {
       var reason = '';
       CheckUserSrv.checkUser().save({
@@ -26,20 +26,23 @@
     }
 
     $scope.checkFailure = function (id, tag, reason) {
-      console.log(reason);
-      CheckUserSrv.checkUser().save({
-        id: id,
-        tag: tag,
-        success: 0,
-        reason: reason
-      }).$promise.then(
-        function (response) {
-          console.log(response.errCode);
-        },
-        function (error) {
-          console.log(error);
-        }
-      )
+      if (!reason) {
+        NoticeSrv.notice(ErrorSrv.getError('409'));
+      } else {
+        CheckUserSrv.checkUser().save({
+          id: id,
+          tag: tag,
+          success: 0,
+          reason: reason
+        }).$promise.then(
+          function (response) {
+            console.log(response.errCode);
+          },
+          function (error) {
+            console.log(error);
+          }
+        )
+      }
     }
 
   }
