@@ -3,7 +3,8 @@
 
   angular
     .module('madBackWeb')
-    .controller('navbarCtrl', navbarCtrl);
+    .controller('navbarCtrl', navbarCtrl)
+    .directive('myAccess', myAccess);
 
   /** @ngInject */
   function navbarCtrl($scope, $location, $state) {
@@ -44,6 +45,19 @@
 
     if ($location.path() == '/statistics') {
       $scope.isStatistics = true;
+    }
+  }
+
+  function myAccess ($window) {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attributes) {
+        var allowedAccess = attributes.myAccess;
+        if ($window.localStorage['LEVEL'] === '1') {
+          scope.display = 'inline';
+        }
+        else scope.display = 'none';
+      }
     }
   }
 })();

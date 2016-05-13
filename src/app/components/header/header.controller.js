@@ -8,6 +8,8 @@
     function HeaderCtrl ($scope, $rootScope, $state, $window, MessageSrv, MessageStatusSrv, DeleteMsgSrv) {
       $scope.logout = function () {
         $window.localStorage.removeItem('token');
+        $window.localStorage.removeItem('LEVEL');
+        $window.localStorage.removeItem('adminId');
         $state.go('app.login');
       }
 

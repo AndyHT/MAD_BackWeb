@@ -15,6 +15,7 @@
             if (response.errCode == 0 && (response.token && response.token != 'undefined')) {
               $window.localStorage['adminId'] = response.id;
               TokenSrv.setToken(response.token);
+              $window.localStorage['LEVEL'] = response.level;
               $state.go('app');
             } else {
               $state.go('app.login');

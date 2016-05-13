@@ -31,7 +31,7 @@
                   <li><a ui-sref="app.finance.refund" ui-sref-opts="{reload: true}">退款申请</a></li>
               </ul>
             </li>
-            <li ng-class="{'active': isAdmin}">
+            <li ng-class="{'active': isAdmin}" my-access="ADMIN" style="display: {{display}}">
               <a ui-sref-opts="{reload: true}"><i class="fa fa-cloud"></i>后台用户管理</a>
               <ul>
                 <li><a ui-sref="app.admin-userlist" ui-sref-opts="{reload: true}">用户列表</a></li>
