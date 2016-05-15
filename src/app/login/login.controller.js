@@ -5,7 +5,7 @@
     .module('madBackWeb')
     .controller('LoginCtrl', LoginCtrl);
 
-    function LoginCtrl ($scope, $state, LoginSrv, TokenSrv, $window) {
+    function LoginCtrl ($scope, $state, LoginSrv, TokenSrv, $window, NoticeSrv) {
       $scope.login = function (username, password) {
         LoginSrv.adminLogin().save({
           name: username,
@@ -15,6 +15,8 @@
             if (response.errCode == 0 && (response.token && response.token != 'undefined')) {
               $window.localStorage['adminId'] = response.id;
               TokenSrv.setToken(response.token);
+              $window.localStorage['LEVEL'] = response.level;
+              NoticeSrv.success("登录成功");
               $state.go('app');
             } else {
               $state.go('app.login');

@@ -4,7 +4,7 @@
       </a>
       <div class="pull-right">
         <ul id="mini-nav" class="clearfix">
-          <li class="list-box dropdown">
+          <!-- <li class="list-box dropdown">
             <a id="drop5" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-film"></i>
             </a>
@@ -38,14 +38,14 @@
                 </div>
               </li>
             </ul>
-          </li>
-          <li class="list-box dropdown">
-            <a id="drop5" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+          </li> -->
+          <li class="list-box dropdown" ng-click="markMsg()">
+            <a id="drop5" role="button" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-calendar"></i>
             </a>
-            <span class="info-label success-bg">6</span>
+            <span class="info-label success-bg">{{msg.number}}</span>
             <ul class="dropdown-menu server-activity">
-              <li>
+              <!-- <li>
                 <p><i class="fa fa-flag text-info"></i> Pending request<span class="time">3 hrs</span></p>
               </li>
               <li>
@@ -53,11 +53,16 @@
               </li>
               <li>
                 <p><i class="fa fa-user text-success"></i> 3 New users<span class="time">1 min</span></p>
+              </li> -->
+              <li ng-repeat="msg in msgList" ng-click="refresh()">
+                <p>
+                  <i class="fa fa-envelope {{msg.color}}"></i>
+                  {{msg.msgContent}}
+                  <button class="close" style="margin-top: 12px;color: red; margin-right: 5px" aria-label="Close" ng-click="delete(msg.id)"><span aria-hidden="true">&times;</span></button>
+                </p>
+                <span style="margin-left:45px">{{msg.msgDate}}</span>
               </li>
-              <li>
-                <p><i class="fa fa-bell text-danger"></i>9 pending requests<span class="time">5 min</span></p>
-              </li>
-              <li>
+              <!-- <li>
                 <p><i class="fa fa-plane text-info"></i> Performance<span class="time">25 min</span></p>
               </li>
               <li>
@@ -65,7 +70,7 @@
               </li>
               <li>
                 <p><i class="fa fa-cog icon-spin text-success"></i> Location settings<span class="time">4 hrs</span></p>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li class="list-box user-profile">

@@ -95,10 +95,13 @@
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <!--未审核的显示以下两个button-->
-                <button type="submit" class="btn btn-success btn-advert" ng-click="audit(ad_id,1)">审核通过</button>
-                <button type="submit" class="btn btn-danger btn-advert" ng-click="audit(ad_id,0)">审核不通过</button>
+                <button type="submit" class="btn btn-success btn-advert" ng-click="audit(ad_id, 1)" ng-show="!pass">审核通过</button>
+                <button type="submit" class="btn btn-danger btn-advert" data-toggle="modal" data-target="#myModal" ng-show="!notPass">审核不通过</button>
                 <!--审核通过的显示下面这个button-->
-                <button type="submit" class="btn btn-danger btn-advert" data-toggle="modal" data-target="#myModal">下架</button>
+                <button type="submit" class="btn btn-danger btn-advert" data-toggle="modal" data-target="#exampleModal" ng-show="remove">下架</button>
+                <div class="text-center col-sm-3 col-sm-offset-3">
+                    <button class="btn btn-success" ui-sref="app.advert-audit" ng-show="back">返回</button>
+                </div>
               </div>
             </div>
           </form>
@@ -112,7 +115,7 @@
 <!-- 因为这里缺少一个模态框，所以我临时加了一个暂时的，样式什么的都没调 -->
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -124,7 +127,29 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="remove(ad_id,reason)">确定</button>
+        <mymodal ng-model="advert">
+          <button type="button" class="btn btn-primary" ng-click="remove(ad_id,reason)">确定</button>
+        </mymodal>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 审核不通过模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">审核不通过理由</h4>
+      </div>
+      <div class="modal-body">
+        <textarea style="width: 100%" ng-model="reasonNotPass"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <mymodal1 ng-model="advert">
+          <button type="button" class="btn btn-primary" ng-click="audit(ad_id, 0, reasonNotPass)">确定</button>
+        </mymodal1>
       </div>
     </div>
   </div>

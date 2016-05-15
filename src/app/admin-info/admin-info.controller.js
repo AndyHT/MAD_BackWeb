@@ -5,7 +5,7 @@
     .module('madBackWeb')
     .controller('AdminInfoCtrl', AdminInfoCtrl);
 
-    function AdminInfoCtrl ($window, $rootScope, $scope, $state, BackUserListSrv, UpdateAdminInfoSrv) {
+    function AdminInfoCtrl ($window, $rootScope, $scope, $state, BackUserListSrv, UpdateAdminInfoSrv, NoticeSrv, ErrorSrv) {
       BackUserListSrv.getBackUserInfo().get()
       .$promise.then(
         function (response) {
@@ -25,22 +25,33 @@
         }
       )
       $scope.updateAdminInfo = function (password, confirmPass) {
-        if (password === confirmPass) {
-          console.log($rootScope.id, $rootScope.email, password)
-          UpdateAdminInfoSrv.updateAdminInfo().save({
-            id: $rootScope.id,
-            email: $rootScope.email,
-            pass: password
-          }).$promise.then(
-            function (response) {
-              console.log(response.errCode);
-              $state.go('app.login');
-            },
-            function (error) {
-              console.log(error);
-            }
-          )
-        } else {
+        if (!password || !confirmPass) {
+          NoticeSrv.error(ErrorSrv.getError('416'));
+        }
+        if (password && confirmPass && (password === confirmPass)) {
+          if (password.length<8) {
+            NoticeSrv.error(ErrorSrv.getError('419'));
+            $state.go('app.admin-info');
+          }
+          else {
+            // console.log($rootScope.id, $rootScope.email, password)
+            UpdateAdminInfoSrv.updateAdminInfo().save({
+              id: $rootScope.id,
+              email: $rootScope.email,
+              pass: password
+            }).$promise.then(
+              function (response) {
+                NoticeSrv.error(ErrorSrv.getError('418'));
+                $state.go('app.login');
+              },
+              function (error) {
+                console.log(error);
+              }
+            )
+          }
+        }
+        if (password && confirmPass && (password !== confirmPass)) {
+          NoticeSrv.error(ErrorSrv.getError('417'));
           $state.go('app.admin-info');
         }
       }

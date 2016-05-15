@@ -9,12 +9,19 @@
     .directive('cancel', cancel);
 
   /** @ngInject */
-  function backgroundManagementCtrl($scope, $state, BackUserListSrv, AddBackUserSrv, UpdateLevelSrv, TokenSrv) {
+  function backgroundManagementCtrl($scope, $state, BackUserListSrv, AddBackUserSrv, UpdateLevelSrv, TokenSrv, NoticeSrv, ErrorSrv) {
     $scope.copy = null;
 
     BackUserListSrv.getBackUserInfo().get()
     .$promise.then(
       function (response) {
+        for (var user in response.backUserList) {
+          if (response.backUserList[user].level == 1) {
+            response.backUserList[user].levelTrans = '超级管理员';
+          } else {
+            response.backUserList[user].levelTrans = '普通管理员';
+          }
+        }
         $scope.userList = response.backUserList;
       }, function (error) {
         console.log(error);
@@ -22,10 +29,22 @@
     )
 
     $scope.addUser = function (name, email, gender, level, hireDate) {
-      var token = '506902848235ee96192b0454850aed83a5a1fe1a56e4be8a664eeb374e7aa37f';
-      if (!name || !email || !gender || !level || !hireDate) {
-        console.log('无法提交!');
-      } else {
+      if (!name && email && gender && level && hireDate) {
+        NoticeSrv.error(ErrorSrv.getError('410'));
+      }
+      if (name && !email && gender && level && hireDate) {
+        NoticeSrv.error(ErrorSrv.getError('411'));
+      }
+      if (name && email && !gender && level && hireDate) {
+        NoticeSrv.error(ErrorSrv.getError('412'));
+      }
+      if (name && email && gender && !level && hireDate) {
+        NoticeSrv.error(ErrorSrv.getError('413'));
+      }
+      if (name && email && gender && level && !hireDate) {
+        NoticeSrv.error(ErrorSrv.getError('414'));
+      }
+      else if (name && email && gender && level && hireDate){
         AddBackUserSrv.addBackUser().save({
           userName: name,
           email: email,
@@ -34,11 +53,16 @@
           hireDate: hireDate
         }).$promise.then(
           function (response) {
+            NoticeSrv.success("添加管理员成功成功");
             $state.go('app.admin-userlist');
           }, function (error) {
+            NoticeSrv.notice("操作失败");
             console.log(error);
           }
         )
+      }
+      else {
+        NoticeSrv.error(ErrorSrv.getError('415'));
       }
     }
 
@@ -61,6 +85,8 @@
               scope.showEdit = true;
               scope.showUpdate = true;
               scope.showCancel = true;
+              scope.display = true;
+              scope.editDisplay = true;
             })
           });
       }
@@ -75,11 +101,10 @@
         element.bind("click",function(){
           var id = "level_" + ngModel.$modelValue.id;
           // console.log('id: ' + ngModel.$modelValue.id);
-          // console.log('newLevel: ' + ngModel.$modelValue.level);
+          // console.log('newLevel: ' + ngModel.$modelValue.newLevel);
           UpdateLevelSrv.updateAdminLevel().save({
-            // token: token,
             id: ngModel.$modelValue.id,
-            newLevel: ngModel.$modelValue.level
+            newLevel: ngModel.$modelValue.newLevel
           }).$promise.then(
             function (response) {
               console.log(response.errCode);
@@ -87,7 +112,6 @@
               console.log(error);
             }
           )
-          // console.log(scope.userList[ngModel.$modelValue.id - 1].level);
           var obj = $("#"+id);
           obj.removeClass("active");
           obj.addClass("inactive");
@@ -96,6 +120,8 @@
             scope.showEdit = false;
             scope.showUpdate = false;
             scope.showCancel = false;
+            scope.display = false;
+            scope.editDisplay = false;
           })
         })
       }
@@ -122,6 +148,8 @@
             scope.showEdit = false;
             scope.showUpdate = false;
             scope.showCancel = false;
+            scope.display = false;
+            scope.editDisplay = false;
           })
         })
       }

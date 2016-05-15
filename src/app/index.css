@@ -1099,8 +1099,9 @@ ul.appointments {
     color: #c6e0f1; }
 
 .notice {
-  position: relative;
+  position: absolute;;
   margin: 10px;
+  margin-top: -325px;
   background: #f2f2f2;
   padding: 12px 12px 12px 25px;
   border-left: 4px solid #e6e6e6; }
