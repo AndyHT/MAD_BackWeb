@@ -40,7 +40,11 @@
             </div>
             <div class="form-group">
               <label for="" class="col-sm-2 col-xs-12 control-label">投放商圈</label>
-              <div class="checkbox col-sm-10 col-xs-8">
+              <!-- 因为是不可更改的，所以直接以text方式显示，不以checkbox方式显示 -->
+               <div class="col-sm-10">
+                <input type="text" class="form-control" value="{{broadcastLocation}}" disabled>
+              </div>
+              <!-- <div class="checkbox col-sm-10 col-xs-8">
                 <label>
                   <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.wujiaochang" checked>五角场
                 </label>
@@ -74,18 +78,18 @@
                 <label>
                   <input type="checkbox" disabled value="" ng-true-value="true" ng-false-value="false" ng-model="showLocation.pudongjichang" >浦东机场
                 </label>
-              </div>
+              </div> -->
             </div>
             <div class="form-group">
               <label for="" class="col-sm-2 control-label">广告投放起始日期</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" value="{{ad_startDate}}" required>
+                <input  class="form-control" value="{{ad_startDate}}" disabled>
               </div>
             </div>
             <div class="form-group">
               <label for="" class="col-sm-2 control-label">广告投放结束日期</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" value="{{ad_endDate}}" required>
+                <input  class="form-control" value="{{ad_endDate}}" disabled>
               </div>
             </div>
             <div class="form-group">
