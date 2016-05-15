@@ -18,8 +18,16 @@
               <tr ng-repeat="user in userList">
                 <td>{{user.name}}</td>
                 <!--<td>{{user.level}}</td>-->
-                <td>
-                  <input type="text" id="level_{{user.id}}" ng-model="user.level" class="inactive" readonly>
+                <td ng-show="!display">
+                  <input type="text" id="level_{{user.id}}" ng-model="user.levelTrans" class="inactive" readonly>
+                </td>
+                <td ng-show="editDisplay">
+                  <label class="radio-inline">
+                    <input type="radio" name="super-admin" value="1" ng-model="user.newLevel">超级管理员
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="normal-admin" value="2" ng-model="user.newLevel">普通管理员
+                  </label>
                 </td>
                 <!--<td><button class="btn btn-danger">修改权限</button></td>-->
                 <td>

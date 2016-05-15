@@ -16,10 +16,12 @@
         reason: reason
       }).$promise.then(
         function (response) {
+          NoticeSrv.success("操作成功");
           if (tag == 1) $state.go('app.user');
           if (tag == 2) $state.go('app.user.list-advert');
         },
         function (error) {
+          NoticeSrv.notice("操作失败");
           console.log(error);
         }
       )
@@ -27,7 +29,7 @@
 
     $scope.checkFailure = function (id, tag, reason) {
       if (!reason) {
-        NoticeSrv.notice(ErrorSrv.getError('409'));
+        NoticeSrv.error(ErrorSrv.getError('409'));
       } else {
         CheckUserSrv.checkUser().save({
           id: id,
@@ -36,9 +38,10 @@
           reason: reason
         }).$promise.then(
           function (response) {
-            console.log(response.errCode);
+            NoticeSrv.success("操作成功");
           },
           function (error) {
+            NoticeSrv.notice("操作失败");
             console.log(error);
           }
         )

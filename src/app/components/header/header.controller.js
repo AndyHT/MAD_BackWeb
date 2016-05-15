@@ -5,12 +5,13 @@
     .module('madBackWeb')
     .controller('HeaderCtrl', HeaderCtrl);
 
-    function HeaderCtrl ($scope, $rootScope, $state, $window, MessageSrv, MessageStatusSrv, DeleteMsgSrv) {
+    function HeaderCtrl ($scope, $rootScope, $state, $window, MessageSrv, MessageStatusSrv, DeleteMsgSrv, NoticeSrv, ErrorSrv) {
       $scope.logout = function () {
         $window.localStorage.removeItem('token');
         $window.localStorage.removeItem('LEVEL');
         $window.localStorage.removeItem('adminId');
         $state.go('app.login');
+        NoticeSrv.notice("您已成功登出");
       }
 
       $scope.markMsg = function () {
@@ -37,6 +38,7 @@
           adminId: $window.localStorage['adminId']
         }).$promise.then(
           function (response) {
+            NoticeSrv.success("成功删除消息");
             $state.reload();
           },
           function (error) {
