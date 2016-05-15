@@ -11,10 +11,20 @@
         function (response) {
           for (var user in response.backUserList) {
             if (response.backUserList[user].id == $window.localStorage['adminId']) {
-              $scope.admin = {
-                id: response.backUserList[user].id,
-                name: response.backUserList[user].name,
-                email: response.backUserList[user].email
+              if (response.backUserList[user].level == 1) {
+                $scope.admin = {
+                  id: response.backUserList[user].id,
+                  name: response.backUserList[user].name,
+                  email: response.backUserList[user].email,
+                  levelT: '超级管理员'
+                };
+              } else {
+                $scope.admin = {
+                  id: response.backUserList[user].id,
+                  name: response.backUserList[user].name,
+                  email: response.backUserList[user].email,
+                  levelT: '普通管理员'
+                };
               }
               $rootScope.id = response.backUserList[user].id;
               $rootScope.email = response.backUserList[user].email;
