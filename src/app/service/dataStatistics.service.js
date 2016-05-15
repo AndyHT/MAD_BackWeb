@@ -18,4 +18,4 @@
       return $resource(baseURL + '/statistics/dayincome');
     }
   }
-})()
+})();

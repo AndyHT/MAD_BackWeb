@@ -5,6 +5,7 @@
     .module('madBackWeb')
     .controller('HeaderCtrl', HeaderCtrl);
 
+    /** @ngInject */
     function HeaderCtrl ($scope, $rootScope, $state, $window, MessageSrv, MessageStatusSrv, DeleteMsgSrv, NoticeSrv, ErrorSrv) {
       $scope.logout = function () {
         $window.localStorage.removeItem('token');
@@ -70,4 +71,4 @@
       }
     }
 
-})()
+})();
