@@ -62,7 +62,7 @@
             id: response.userDetail.id,
             status: response.userDetail.status,
             email: response.userDetail.email,
-            registerDate: response.userDetail.detail.registerDate,
+            registerDate: response.userDetail.registerDate,
             type: response.userDetail.detail.type,
             licenseType: response.userDetail.detail.licenseType,
             licenseImage: response.userDetail.detail.licenseImage,
