@@ -9,7 +9,7 @@
       $scope.login = function (username, password) {
         LoginSrv.adminLogin().save({
           name: username,
-          pass: password
+          password: password
         }).$promise.then(
           function (response) {
             if (response.errCode == 0 && (response.token && response.token != 'undefined')) {

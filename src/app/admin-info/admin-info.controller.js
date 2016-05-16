@@ -48,7 +48,7 @@
             UpdateAdminInfoSrv.updateAdminInfo().save({
               id: $rootScope.id,
               email: $rootScope.email,
-              pass: password
+              password: password
             }).$promise.then(
               function (response) {
                 NoticeSrv.error(ErrorSrv.getError('418'));
