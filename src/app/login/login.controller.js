@@ -16,6 +16,7 @@
               $window.localStorage['adminId'] = response.id;
               TokenSrv.setToken(response.token);
               $window.localStorage['LEVEL'] = response.level;
+              $window.localStorage['upToken'] = response.uptoken;
               NoticeSrv.success("登录成功");
               $state.go('app');
             } else {

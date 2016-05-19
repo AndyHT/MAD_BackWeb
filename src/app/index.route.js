@@ -313,6 +313,19 @@
             controller: 'refundApplyCtrl'
           }
         }
+      })
+      .state('app.advert-upload', {
+        url: 'advert/upload',
+        views: {
+          'sub-navbar@': {
+              templateUrl: 'app/components/sub-navbar/advert-sub-navbar.html',
+              controller: 'subNavbarCtrl'
+          },
+          'content@': {
+            templateUrl: 'app/upload/upload.html',
+            controller: 'UploadCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');

@@ -28,6 +28,7 @@ gulp.task('inject', ['scripts'], function () {
     path.join(conf.paths.bower, '/amcharts3/amcharts/serial.js'),
     path.join(conf.paths.bower, '/amcharts3/amcharts/pie.js'),
     path.join(conf.paths.bower, '/amcharts3/amcharts/themes/light.js'),
+    path.join(conf.paths.bower, '/amcharts3/amcharts/pie.js'),
     path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
     path.join('!' + conf.paths.src, '/app/**/*.mock.js'),
   ])
