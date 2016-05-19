@@ -26,6 +26,7 @@
     }
 
     if ($location.path() == '/advert/push' ||
+        $location.path() == '/advert/upload' ||
         $location.path() == '/advert/audit' ||
         $location.path() == '/advert/search') {
       $scope.isAdManage = true;

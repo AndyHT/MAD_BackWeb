@@ -15,13 +15,14 @@
     $scope.userauth = false;
 
     $scope.adpush = false;
+    $scope.adupload = false;
     $scope.adaduit = false;
     $scope.adsearch = false;
 
     $scope.finance = false;
     $scope.financecash = false;
     $scope.financerefund = false;
-
+    console.log($location.path());
     if ($location.path() == '/user/list-mobile') {
       $scope.user = true;
     }
@@ -41,6 +42,9 @@
 
     if ($location.path() == '/advert/push') {
       $scope.adpush = true;
+    }
+    if ($location.path() == '/advert/upload') {
+      $scope.adupload = true;
     }
     if ($location.path() == '/advert/audit') {
       $scope.adaduit = true;

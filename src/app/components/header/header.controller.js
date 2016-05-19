@@ -11,6 +11,7 @@
         $window.localStorage.removeItem('token');
         $window.localStorage.removeItem('LEVEL');
         $window.localStorage.removeItem('adminId');
+        $window.localStorage.removeItem('upToken');
         $state.go('app.login');
         NoticeSrv.notice("您已成功登出");
       }
