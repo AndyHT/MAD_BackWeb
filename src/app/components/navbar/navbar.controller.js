@@ -33,7 +33,8 @@
 
     if ($location.path() == '/finance' ||
         $location.path() == '/finance/cash' ||
-        $location.path() == '/finance/refund') {
+        $location.path() == '/finance/refund' ||
+        $location.path() == '/finance/recharge') {
       $scope.isFinanceManage = true;
     }
 

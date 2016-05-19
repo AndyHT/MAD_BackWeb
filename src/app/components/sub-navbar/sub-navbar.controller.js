@@ -61,6 +61,10 @@
       $scope.financerefund = true;
     }
 
+    if ($location.path() == '/finance/recharge') {
+      $scope.financerecharge = true;
+    }
+
   }
 
 })();

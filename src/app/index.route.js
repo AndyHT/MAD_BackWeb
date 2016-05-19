@@ -296,6 +296,15 @@
           }
         }
       })
+      .state('app.finance.recharge', {
+        url: '/recharge',
+        views: {
+          'content@': {
+            templateUrl: 'app/finance-recharge/finance-recharge.html',
+            controller: 'rechargeApplyCtrl'
+          }
+        }
+      })
       .state('app.finance.refund', {
         url: '/refund',
         views: {
