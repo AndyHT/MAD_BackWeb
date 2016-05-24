@@ -58,8 +58,16 @@
         element.bind("click", function() {
           var obj = $("#exampleModal");
           obj.modal('hide');
+          setTimeout(function() {
+            if ($location.path() == '/user/list-mobileuser/check-mobile') {
+              $state.go('app.user');
+            }
+            else if ($location.path() == '/user/list-mobileuser/check-advert') {
+              $state.go('app.user.list-advert');
+            }
+          }, 1000);
           scope.$apply(function(){
-            scope.back = true;
+            // scope.back = true;
             scope.pass = true;
             scope.notPass = true;
           })

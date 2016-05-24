@@ -74,8 +74,11 @@
         element.bind("click", function() {
           var obj = $("#exampleModal");
           obj.modal('hide');
+          setTimeout(function() {
+            $state.go('app.advert-audit');
+          }, 1000);
           scope.$apply(function(){
-            scope.back = true;
+            // scope.back = true;
             scope.pass = true;
             scope.remove = false;
             scope.notPass = true;
@@ -93,8 +96,11 @@
         element.bind("click", function() {
           var obj = $("#myModal");
           obj.modal('hide');
+          setTimeout(function() {
+            $state.go('app.advert-audit');
+          }, 1000);
           scope.$apply(function(){
-            scope.back = true;
+            // scope.back = true;
             scope.pass = true;
             scope.remove = false;
             scope.notPass = true;
