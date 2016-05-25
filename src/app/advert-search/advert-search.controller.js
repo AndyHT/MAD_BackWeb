@@ -27,12 +27,14 @@
       if(selectedPlace == $scope.places[i]){
         if(i < 10) location = '00' + i;
         else location = '0' + i;
-        
+        break;
       }else{
         location = '';
       }
       
     };
+
+    console.log(location);
   		searchAdsSrv.searchAds().save({},{
   			id: id,
   			title: title,
