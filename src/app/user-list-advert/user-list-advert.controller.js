@@ -33,7 +33,18 @@
             list[user].operator = '广告商详情';
           }
         }
-        $scope.userList = list;
+        $scope.currentPage = 1
+        ,$scope.numPerPage = 5
+        ,$scope.maxSize = 5
+        ,$scope.length = list.length;
+        $scope.$watch("currentPage + numPerPage", function() {
+          var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+          , end = begin + $scope.numPerPage;
+          console.log(begin + ' | ' + end);
+          $scope.userList = list.slice(begin, end);
+        });
+
+        // $scope.userList = filteredTodos;
         $scope.filter = {};
         $scope.filterByCategory = function (user) {
           return $scope.filter[user.status] || noFilter($scope.filter);

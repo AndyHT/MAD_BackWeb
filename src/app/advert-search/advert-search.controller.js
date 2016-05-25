@@ -1,7 +1,7 @@
 /**
  * Created by mandyxue on 16/4/5.
  */
- 
+
 (function() {
   'use strict';
 
@@ -45,6 +45,7 @@
        	    if(response.errCode == 0){
             //alert("操作成功");
             //window.location.reload();
+
             //console.log(response.resultList[0].status);
             for (var i = 0; i < response.resultList.length; i++) {
             if(response.resultList[i].status == "000") response.resultList[i].status ="未通过审核";
@@ -55,6 +56,22 @@
 
           }
             $scope.resultList = response.resultList;
+
+            // 分页
+            $scope.currentPage = 1
+            ,$scope.numPerPage = 5
+            ,$scope.maxSize = 5
+            ,$scope.length = response.resultList.length;
+
+            $scope.$watch("currentPage + numPerPage", function() {
+              var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+              , end = begin + $scope.numPerPage;
+              console.log(begin + ' | ' + end);
+              $scope.resultList = response.resultList.slice(begin, end);
+            });
+
+            // $scope.resultList = response.resultList;
+
         }else{
           alert("操作失败");
           //window.location.reload();
@@ -83,6 +100,7 @@
    		$rootScope.ad_catalog = response.adsDetail.catalog;
    		$rootScope.ad_startDate = response.adsDetail.startDate;
    		$rootScope.ad_endDate = response.adsDetail.endDate;
+<<<<<<< HEAD
       var location = response.adsDetail.broadcastLocation;
       console.log(location.length);
       var showLocation = "";
@@ -124,6 +142,10 @@
       $rootScope.broadcastLocation = showLocation;
    		//$rootScope.broadcastLocation = response.adsDetail.broadcastLocation;
    	
+=======
+   		$rootScope.broadcastLocation = response.adsDetail.broadcastLocation;
+
+>>>>>>> 6b00f91162cc8c9aabe74f5b8a91d5e16bbc540b
    	}, function (error) {
    		console.log(error);
    	});

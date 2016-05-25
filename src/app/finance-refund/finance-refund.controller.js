@@ -12,13 +12,24 @@
     })
   	.$promise.then(
       function (response) {
-      	console.log(response);
-      	$scope.refundApplyList = response.applyList;
+      	// console.log(response);
+        // 分页
+        $scope.currentPage = 1
+        ,$scope.numPerPage = 5
+        ,$scope.maxSize = 5
+        ,$scope.length = response.applyList.length;
+        $scope.$watch("currentPage + numPerPage", function() {
+          var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+          , end = begin + $scope.numPerPage;
+          console.log(begin + ' | ' + end);
+          $scope.refundApplyList = response.applyList.slice(begin, end);
+        });
+      	// $scope.refundApplyList = response.applyList;
       }, function (error) {
         console.log(error);
       }
     );
-    
+
     $scope.completeCash = function(username, password, tag, id){
       console.log(id);
     financeListSrv.completeApply().save({},{

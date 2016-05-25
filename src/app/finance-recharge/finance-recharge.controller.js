@@ -12,8 +12,19 @@
   	})
   	.$promise.then(
       function (response) {
-      	console.log(response);
-      	$scope.rechargeApplyList = response.applyList;
+      	// console.log(response);
+        // 分页
+        $scope.currentPage = 1
+        ,$scope.numPerPage = 5
+        ,$scope.maxSize = 5
+        ,$scope.length = response.applyList.length;
+        $scope.$watch("currentPage + numPerPage", function() {
+          var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+          , end = begin + $scope.numPerPage;
+          console.log(begin + ' | ' + end);
+          $scope.rechargeApplyList = response.applyList.slice(begin, end);
+        });
+      	// $scope.rechargeApplyList = response.applyList;
       }, function (error) {
         console.log(error);
       }

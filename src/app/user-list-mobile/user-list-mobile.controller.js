@@ -33,19 +33,20 @@
             list[user].operator = '用户详情';
           }
         }
-        $scope.userList = list;
+        // $scope.userList = list;
         $scope.filter = {};
 
-        // $scope.filteredList = []
-        // ,$scope.currentPage = 1
-        // ,$scope.numPerPage = 5
-        // ,$scope.maxSize = 10;
-        //
-        // $scope.$watch("currentPage + numPerPage", function() {
-        //   var begin = (($scope.currentPage - 1) * $scope.numPerPage)
-        //   , end = begin + $scope.numPerPage;
-        //   $scope.filteredList = $scope.userList.slice(begin, end);
-        // });
+        $scope.currentPage = 1
+        ,$scope.numPerPage = 5
+        ,$scope.maxSize = 10
+        ,$scope.length = list.length;
+        $scope.$watch("currentPage + numPerPage", function() {
+          var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+          , end = begin + $scope.numPerPage;
+          console.log(begin + ' | ' + end);
+          $scope.userList = list.slice(begin, end);
+        });
+
 
         $scope.filterByCategory = function (user) {
           return $scope.filter[user.status] || noFilter($scope.filter);

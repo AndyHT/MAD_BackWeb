@@ -22,7 +22,18 @@
             response.backUserList[user].levelTrans = '普通管理员';
           }
         }
-        $scope.userList = response.backUserList;
+        $scope.currentPage = 1
+        ,$scope.numPerPage = 5
+        ,$scope.maxSize = 5
+        ,$scope.length = response.backUserList.length;
+
+        $scope.$watch("currentPage + numPerPage", function() {
+          var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+          , end = begin + $scope.numPerPage;
+          console.log(begin + ' | ' + end);
+          $scope.userList = response.backUserList.slice(begin, end);
+        });
+        // $scope.userList = response.backUserList;
       }, function (error) {
         console.log(error);
       }
