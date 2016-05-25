@@ -19,6 +19,6 @@
   }
 
   angular.module('madBackWeb').value('baseURL', 'http://121.42.57.59:4000/back');
-  // angular.module('madBackWeb').value('baseURL', 'http://localhost:4000/back');
+   //angular.module('madBackWeb').value('baseURL', 'http://localhost:4000/back');
 
 })();

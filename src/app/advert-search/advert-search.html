@@ -34,7 +34,8 @@
                         <option>16:00-20:00</option>
                       </select> -->
                       <label for="">广告投放地点</label>
-                      <input type="text" class="form-control" placeholder="输入广告投放地点" ng-model="location">
+                      <!-- <input type="text" class="form-control" placeholder="输入广告投放地点" ng-model="location"> -->
+                      <select ng-model="selectedPlace" class="form-control" ng-options="place for place in places"></select>
                     </div>
                     <div class="form-group">
                       <label for="">播放起始日期</label>
@@ -45,7 +46,7 @@
                       <input type="date" class="form-control" ng-model="endDate">
                     </div>
                     <div class="text-center">
-                      <button class="btn btn-success" style="width:80%;" ng-click="search(id,title,location,startDate,endDate)">查询</button>
+                      <button class="btn btn-success" style="width:80%;" ng-click="search(id,title,selectedPlace,startDate,endDate)">查询</button>
                     </div>
                   </form>
                 </div>

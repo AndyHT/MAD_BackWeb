@@ -16,7 +16,7 @@
     //审核广告，根据tag=1或0来区别通过与不通过
     var reason = '';
   	$scope.audit = function(id, tag, reason){
-      if (tag = 0) {
+      if (tag == 0) {
         reason = reason;
       }
     	auditAdsSrv.auditAds().save({},{
@@ -28,6 +28,7 @@
           console.log(response);
           if(response.errCode == 0){
             NoticeSrv.success("操作成功");
+
             // alert("操作成功");
             // window.location.reload();
           }else{
@@ -39,6 +40,10 @@
           console.log(error);
         }
       );
+      if(tag == 1){
+      $state.go('app.advert-audit');
+      window.location.reload();
+    }
   	};
 
     //下架广告，蒙版问题还没有解决，暂时没有跳转，只是刷新本页
