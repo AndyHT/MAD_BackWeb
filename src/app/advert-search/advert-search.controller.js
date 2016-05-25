@@ -1,7 +1,7 @@
 /**
  * Created by mandyxue on 16/4/5.
  */
- 
+
 (function() {
   'use strict';
 
@@ -34,7 +34,20 @@
        	    if(response.errCode == 0){
             //alert("操作成功");
             //window.location.reload();
-            $scope.resultList = response.resultList;
+            // 分页
+            $scope.currentPage = 1
+            ,$scope.numPerPage = 5
+            ,$scope.maxSize = 5
+            ,$scope.length = response.resultList.length;
+
+            $scope.$watch("currentPage + numPerPage", function() {
+              var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+              , end = begin + $scope.numPerPage;
+              console.log(begin + ' | ' + end);
+              $scope.resultList = response.resultList.slice(begin, end);
+            });
+
+            // $scope.resultList = response.resultList;
         }else{
           alert("操作失败");
           //window.location.reload();
@@ -64,7 +77,7 @@
    		$rootScope.ad_startDate = response.adsDetail.startDate;
    		$rootScope.ad_endDate = response.adsDetail.endDate;
    		$rootScope.broadcastLocation = response.adsDetail.broadcastLocation;
-   	
+
    	}, function (error) {
    		console.log(error);
    	});

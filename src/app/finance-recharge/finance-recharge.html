@@ -64,13 +64,20 @@
                                 拒绝提现
                               </button>
                             </div>
-                            
+
                           </td>
                         </tr>
                       </tbody>
                     </table>
-
-                    <nav class="text-center">
+                    <!--分页-->
+                    <pagination
+                      ng-model = "currentPage"
+                      total-items = "length"
+                      items-per-page = "numPerPage"
+                      max-size = "maxSize"
+                      boundary-links = "true">
+                    </pagination>
+                    <!-- <nav class="text-center">
                         <ul class="pagination">
                         <li>
                             <a href="#" aria-label="Previous">
@@ -88,12 +95,12 @@
                             </a>
                         </li>
                         </ul>
-                    </nav>
+                    </nav> -->
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Row End -->         
+            <!-- Row End -->
           </div>
 </div>
 

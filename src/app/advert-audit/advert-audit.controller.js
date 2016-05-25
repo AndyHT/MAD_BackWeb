@@ -12,17 +12,29 @@
   function AdvertAuditCtrl($scope, $state, adsListSrv, adDetailSrv, $rootScope) {
   	var token = "";
   	adsListSrv.getNotAuditList().save({},{
-  		//token: token, 
+  		//token: token,
   		tag: 1
   	}).$promise.then(
       function (response) {
       	//console.log(response.notAuditAdsList);
-        $scope.advertList = response.notAuditAdsList;
+        // 分页
+        $scope.currentPage = 1
+        ,$scope.numPerPage = 5
+        ,$scope.maxSize = 5
+        ,$scope.length = response.notAuditAdsList.length;
+
+        $scope.$watch("currentPage + numPerPage", function() {
+          var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+          , end = begin + $scope.numPerPage;
+          console.log(begin + ' | ' + end);
+          $scope.advertList = response.notAuditAdsList.slice(begin, end);
+        });
+        // $scope.advertList = response.notAuditAdsList;
       }, function (error) {
         console.log(error);
       }
     );
-  
+
 
 //显示广告详情，投放商圈没有处理，因为数据格式不确定
    $scope.adsDetail = function(id) {
