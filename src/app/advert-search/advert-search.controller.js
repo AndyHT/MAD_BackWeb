@@ -100,7 +100,6 @@
    		$rootScope.ad_catalog = response.adsDetail.catalog;
    		$rootScope.ad_startDate = response.adsDetail.startDate;
    		$rootScope.ad_endDate = response.adsDetail.endDate;
-<<<<<<< HEAD
       var location = response.adsDetail.broadcastLocation;
       console.log(location.length);
       var showLocation = "";
@@ -142,10 +141,6 @@
       $rootScope.broadcastLocation = showLocation;
    		//$rootScope.broadcastLocation = response.adsDetail.broadcastLocation;
    	
-=======
-   		$rootScope.broadcastLocation = response.adsDetail.broadcastLocation;
-
->>>>>>> 6b00f91162cc8c9aabe74f5b8a91d5e16bbc540b
    	}, function (error) {
    		console.log(error);
    	});
