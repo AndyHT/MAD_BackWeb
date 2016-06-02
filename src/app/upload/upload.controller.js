@@ -7,7 +7,7 @@
 
     function UploadCtrl($scope, $log, $qupload, $window) {
       $scope.selectFiles = [];
-      console.log($window.localStorage['upToken']);
+      // console.log($window.localStorage['upToken']);
   		var start = function (index) {
   			$scope.selectFiles[index].progress = {
   				p: 0

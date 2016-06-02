@@ -19,7 +19,7 @@
         $scope.$watch("currentPage + numPerPage", function() {
           var begin = (($scope.currentPage - 1) * $scope.numPerPage)
           , end = begin + $scope.numPerPage;
-          console.log(begin + ' | ' + end);
+          // console.log(begin + ' | ' + end);
           $scope.financeList = response.accountList.slice(begin, end);
         });
       	// $scope.financeList = response.accountList;

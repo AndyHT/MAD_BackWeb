@@ -10,32 +10,54 @@
     DashboardSrv.getDashboardData().get()
     .$promise.then(
       function (response) {
+        console.log(response);
+        // 总量和昨日投放量
+        var last = response.advert_detail7.reverse().slice(0, 7);
+        $scope.data = {
+          totalBroadcastTimes: response.totalBroadcastTimes,
+          totalAdvertisement: response.totalAdvertisement,
+          totalAdvertiser: response.totalAdvertiser,
+          totalUser: response.totalUser,
+          lastDayBroadcast: last[0].totalBroadcastTimes,
+          rate: (last[0].totalBroadcastTimes - last[1].totalBroadcastTimes) / last[0].totalBroadcastTimes
+        };
+        // 广告排放量前三
+        var advert_most = [];
+        for (var i = 0; i < response.advert_most.length; i++) {
+          for (var j = i + 1; j < response.advert_most.length; j++) {
+            if (response.advert_most[j].broadcastSum > response.advert_most[i].broadcastSum) {
+              var temp = response.advert_most[i];
+              response.advert_most[i] = response.advert_most[j];
+              response.advert_most[j] = temp;
+            }
+          }
+        }
+        for (var i = 0; i < response.advert_most.length; i++) {
+          response.advert_most[i].rank = 'Top' + (i + 1);
+        }
+
+        // 最近一周广告投放和最近一周收入统计
+        var weekData = response.advert_detail7.reverse().slice(0, 7);
+        var day = ['Sun', 'Mon', 'Tue', 'Web', 'Thu', 'Fri', 'Sat'];
+        for (var i = 0; i < weekData.length; i++) {
+          weekData[i].week = day[(new Date(weekData[i].date).getDay())];
+        }
+        // $scope.data = {
+        //   lastDayBroadcast: weekData[0].totalBroadcastTimes,
+        //   rate: (weekData[0].totalBroadcastTimes - weekData[1].totalBroadcastTimes) / weekData[0].totalBroadcastTimes
+        // }
+        // if (weekData[1].totalBroadcastTimes) {
+        //   $scope.data = {
+        //     rate: (weekData[0].totalBroadcastTimes - weekData[1].totalBroadcastTimes) / weekData[0].totalBroadcastTimes
+        //   }
+        // }
+        weekData.reverse();
+
         //第二排第三个图
         var chart_week_income = AmCharts.makeChart("mob-desktop", {
           "type": "serial",
           "theme": "light",
-          "dataProvider": [ {
-            "week": "Mon",
-            "income": 2025
-          }, {
-            "week": "Tue",
-            "income": 1882
-          }, {
-            "week": "Wed",
-            "income": 1809
-          }, {
-            "week": "Thu",
-            "income": 1322
-          }, {
-            "week": "Fri",
-            "income": 1122
-          }, {
-            "week": "Sat",
-            "income": 1114
-          }, {
-            "week": "Sun",
-            "income": 984
-          }],
+          "dataProvider": weekData,
           "valueAxes": [ {
             "gridColor": "#FFFFFF",
             "gridAlpha": 0.2,
@@ -44,11 +66,11 @@
           "gridAboveGraphs": true,
           "startDuration": 1,
           "graphs": [ {
-            "balloonText": "[[category]]: <b>[[value]]</b>",
+            "balloonText": "[[date]]</br>[[category]]: <b>[[value]]</b>",
             "fillAlphas": 0.8,
             "lineAlpha": 0.2,
             "type": "column",
-            "valueField": "income"
+            "valueField": "totalIncome"
           } ],
           "chartCursor": {
             "categoryBalloonEnabled": false,
@@ -73,18 +95,9 @@
         var chart_top_rank = AmCharts.makeChart( "mobVsDesk", {
           "type": "pie",
           "theme": "light",
-          "dataProvider": [ {
-            "rank": "Top 1",
-            "value": 9852
-          }, {
-            "rank": "Top 2",
-            "value": 7899
-          },{
-            "rank": "Top 3",
-            "value": 5899
-          }  ],
+          "dataProvider": response.advert_most,
           "titleField": "rank",
-          "valueField": "value",
+          "valueField": "broadcastSum",
           "labelRadius": 5,
 
           "radius": "46%",
@@ -130,8 +143,8 @@
 
             "lineThickness": 2,
             "title": "red line",
-            "valueField": "delivery",
-            "balloonText": "<span style='font-size:18px;'>[[value]]</span>"
+            "valueField": "totalBroadcastTimes",
+            "balloonText": "[[date]]</br><span style='font-size:18px;'>[[value]]</span>"
           }],
 
           "chartCursor": {
@@ -152,28 +165,7 @@
           "export": {
             "enabled": true
           },
-          "dataProvider": [ {
-            "week": "Mon",
-            "delivery": 2025
-          }, {
-            "week": "Tue",
-            "delivery": 1882
-          }, {
-            "week": "Wed",
-            "delivery": 1809
-          }, {
-            "week": "Thu",
-            "delivery": 1322
-          }, {
-            "week": "Fri",
-            "delivery": 1122
-          }, {
-            "week": "Sat",
-            "delivery": 1114
-          }, {
-            "week": "Sun",
-            "delivery": 984
-          }]
+          "dataProvider": weekData
         });
 
         //第三排download图

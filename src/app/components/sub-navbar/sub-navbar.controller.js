@@ -22,7 +22,7 @@
     $scope.finance = false;
     $scope.financecash = false;
     $scope.financerefund = false;
-    console.log($location.path());
+    // console.log($location.path());
     if ($location.path() == '/user/list-mobile') {
       $scope.user = true;
     }

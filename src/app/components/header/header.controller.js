@@ -22,7 +22,7 @@
         })
         .$promise.then(
           function (response) {
-            console.log(response.errCode);
+            // console.log(response.errCode);
           }
         ),
         function (error) {
