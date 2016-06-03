@@ -31,7 +31,7 @@
       }else{
         location = '';
       }
-      
+
     };
 
     console.log(location);
@@ -43,7 +43,7 @@
   			endDate: end
   		}).$promise.then(
      	 function (response) {
-        	console.log(response);
+        	// console.log(response);
        	    if(response.errCode == 0){
             //alert("操作成功");
             //window.location.reload();
@@ -68,7 +68,7 @@
             $scope.$watch("currentPage + numPerPage", function() {
               var begin = (($scope.currentPage - 1) * $scope.numPerPage)
               , end = begin + $scope.numPerPage;
-              console.log(begin + ' | ' + end);
+              // console.log(begin + ' | ' + end);
               $scope.resultList = response.resultList.slice(begin, end);
             });
 
@@ -142,7 +142,7 @@
       };
       $rootScope.broadcastLocation = showLocation;
    		//$rootScope.broadcastLocation = response.adsDetail.broadcastLocation;
-   	
+
    	}, function (error) {
    		console.log(error);
    	});
