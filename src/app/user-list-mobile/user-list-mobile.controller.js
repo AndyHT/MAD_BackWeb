@@ -73,9 +73,9 @@
           $rootScope.mobile = {
             name: response.userDetail.name,
             id: response.userDetail.id,
-            location: response.userDetail.location,
+            // location: response.userDetail.location,
             vehicleLicenseImage: response.userDetail.vehicleLicenseImage,
-            email: response.userDetail.email,
+            // email: response.userDetail.email,
             mobilePhone: response.userDetail.mobilePhone
           }
         }, function (error) {
