@@ -20,6 +20,12 @@
           var begin = (($scope.currentPage - 1) * $scope.numPerPage)
           , end = begin + $scope.numPerPage;
           // console.log(begin + ' | ' + end);
+          for (var i = 0; i < response.accountList.length; i++) {
+            if(response.accountList[i].catalog == "1") response.accountList[i].catalog ="广告商充值申请";
+            else if(response.accountList[i].catalog == "2") response.accountList[i].catalog ="广告商退款申请";
+            else if(response.accountList[i].catalog == "3") response.accountList[i].catalog ="车主用户提现申请";
+            
+          }
           $scope.financeList = response.accountList.slice(begin, end);
         });
       	// $scope.financeList = response.accountList;
