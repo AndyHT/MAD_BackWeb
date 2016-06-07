@@ -10,7 +10,7 @@
     DashboardSrv.getDashboardData().get()
     .$promise.then(
       function (response) {
-        console.log(response);
+        // console.log(response);
         // 总量和昨日投放量
         var last = response.advert_detail7.reverse().slice(0, 7);
         $scope.data = {

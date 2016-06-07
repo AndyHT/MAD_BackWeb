@@ -90,7 +90,7 @@
             legalPersonIfLongTerm: response.userDetail.detail.legalPerson.ifLongTerm,
             legalPersonIfLegalPerson: response.userDetail.detail.legalPerson.ifLegalPerson
           }
-          console.log(response);
+          // console.log(response);
         }, function (error) {
           console.log(error);
         }

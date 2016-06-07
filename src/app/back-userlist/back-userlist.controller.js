@@ -87,7 +87,7 @@
         element.bind("click", function() {
           var id = "level_" + ngModel.$modelValue.id;
             scope.copy = angular.copy(ngModel.$modelValue.level);
-            console.log(ngModel.$modelValue.level + ' : ' + scope.copy);
+            // console.log(ngModel.$modelValue.level + ' : ' + scope.copy);
             var obj = $("#"+id);
             obj.removeClass("inactive");
             obj.addClass("active");
