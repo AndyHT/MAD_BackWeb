@@ -88,7 +88,7 @@
             legalPersonId: response.userDetail.detail.legalPerson.id,
             legalPersonValidDate: response.userDetail.detail.legalPerson.validDate,
             legalPersonIfLongTerm: response.userDetail.detail.legalPerson.ifLongTerm,
-            legalPersonIfLegalPerson: response.userDetail.detail.legalPerson.ifLegalPerson,
+            legalPersonIfLegalPerson: response.userDetail.detail.legalPerson.ifLegalPerson
           }
           console.log(response);
         }, function (error) {
